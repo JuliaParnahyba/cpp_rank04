@@ -32,10 +32,10 @@ for MODULE in $MODULES_DIRS; do
 
   # Renomeia branch se necessário
   CURRENT_BRANCH=$(git branch --show-current)
-  if [ "$CURRENT_BRANCH" != "main" ]; then
-    git branch -m main
+  if [ "$CURRENT_BRANCH" != "master" ]; then
+    git branch -m master
   fi
 
-  git push origin main
+  git push origin master
   echo "✅ $MODULE sincronizado com sucesso!"
 done
