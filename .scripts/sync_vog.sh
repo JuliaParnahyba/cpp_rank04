@@ -1,7 +1,7 @@
 #!/bin/bash
 
-GITHUB_DIR=~/4/Rank04/02_CPP
-VOGSPHERE_BASE=~/4/Rank04
+GITHUB_DIR=~/42/Rank04/02_CPP
+VOGSPHERE_BASE=~/42/Rank04
 MODULES_DIRS=$(git diff --name-only HEAD@{1} HEAD | cut -d/ -f1 | sort -u | grep "^Module")
 
 if [ -z "$MODULES_DIRS" ]; then
