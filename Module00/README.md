@@ -107,3 +107,5 @@ Cada exercício possui seu próprio `Makefile` com as regras usuais:
 | ex00      | ✅ Concluído            |
 | ex01      | ⏳ Em andamento         |
 | ex02      | 🔲 Opcional (planejado) |
+
+outro testes
