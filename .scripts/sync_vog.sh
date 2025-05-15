@@ -12,9 +12,11 @@ fi
 cd "$GITHUB_DIR" || exit 1
 
 for MODULE in $MODULES_DIRS; do
-  VOG_DIR="$VOGSPHERE_BASE/Vog_$MODULE"
+  # Extrai o número do módulo (ex: 00, 01)
+  MOD_NUM=$(echo "$MODULE" | grep -oP '\d+')
+  VOG_DIR="$VOGSPHERE_BASE/Vog_CPP$MOD_NUM"
 
-  echo "📦 Iniciando sincronização de $MODULE"
+  echo "📦 Iniciando sincronização de $MODULE → $VOG_DIR"
 
   if [ ! -d "$VOG_DIR" ]; then
     echo "⚠️  Vogsphere repo '$VOG_DIR' não encontrado. Pulando..."
