@@ -6,19 +6,19 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 11:46:56 by jparnahy          #+#    #+#              #
-#    Updated: 2025/02/04 18:37:38 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/02/03 11:53:16 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #name of the executable
-NAME = megaphone
+NAME = run.a
 
 #compiler and flags
 CPP = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 #source files
-SRC = megaphone.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 #rules

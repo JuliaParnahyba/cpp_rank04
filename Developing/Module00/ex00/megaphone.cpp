@@ -5,38 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 18:29:37 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/02/04 18:44:36 by jparnahy         ###   ########.fr       */
+/*   Created: 2025/05/15 17:22:31 by jparnahy          #+#    #+#             */
+/*   Updated: 2025/05/16 13:54:12 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cctype>
 
-void    uppercase(int c, char** arg)
+void    to_upper(char *args)
 {
-    for (int i = 1; i < c; i++)
-    {
-        for (int j = 0; arg[i][j]; j++)
-        {
-            std::cout << (char)std::toupper(arg[i][j]);
-        }
-        //std::cout << " ";
-    }
-    std::cout << std::endl;
+    for (int i = 0; args[i]; i++)
+        std::cout << (char)std::toupper(args[i]);
 }
 
-int main(int argc, char** argv)
+int main(int c, char **v)
 {
-    int i = 0;
-    int j = 0;
-
-    if (argc == 1)
+    if (c > 1)
     {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-        return 0;
+        for (int i = 1; i < c; i++)
+            to_upper(v[i]);   
     }
-    else
-        uppercase(argc, argv);
-    return 0;
+    else 
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+    std::cout << std::endl;
+    return (0);
 }
