@@ -22,23 +22,41 @@ Esta sequência de módulos tem como objetivo apresentar e praticar conceitos fu
 
 ```bash
 CPP/
-├── Module00/
-│   ├── ex00/        # Megaphone
-│   ├── ex01/        # PhoneBook
-│   └── ex02/        # The Job of Your Dreams
-├── Module01/
-│   ├── ex00/        # Zombie
-│   ├── ex01/        # ZombieHorde
-│   └── ...
-├── Module02/
-│   ├── ex00/        # Canonical Form Class
-│   └── ...
-├── Module03/
-│   └── ...
-├── Module04/
-│   └── ...
+├── .scripts/
+│   └── sync_vog.sh
+├── Developing/
+│   ├── Module00/
+│   │   ├── ex00/        # Megaphone
+│   │   ├── ex01/        # PhoneBook
+│   │   ├── ex02/        # The Job of Your Dreams
+│   │   ├── en.subject_Module00.pdf
+│   │   └── README.md
+│   ├── Module01/
+│   │   ├── ex00/        # Zombie
+│   │   ├── ex01/        # ZombieHorde
+│   │   └── ...
+│   ├── Module02/
+│   │   ├── ex00/        # Canonical Form Class
+│   │   └── ...
+│   ├── Module03/
+│   │   └── ...
+│   └── Module04/
+│       └── ...
+├── Learning_C++/
+│   ├── Module00/
+│   │   ├── README.md
+│   │   └── ...
+│   ├── Module01/
+│   │   └── ...
+│   ├── Module02/
+│   │   └── ...
+│   ├── Module03/
+│   │   └── ...
+│   └── Module04/
+│       └── ...
+├── .gitignore
 └── README.md
-````
+```
 
 <br>
 

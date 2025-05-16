@@ -4,3 +4,4 @@
 *.exe
 .vscode/
 .DS_Store
+.scripts/
