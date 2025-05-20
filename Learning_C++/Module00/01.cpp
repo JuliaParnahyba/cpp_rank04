@@ -34,3 +34,26 @@ int main(int c, char **v)
     std::cout << "You passed " << count << " arguments." << std::endl;
     return (0);
 }
+
+
+/* ************************************************************************ */
+/*                                                                          */
+/*          ##### C O R R E Ç Ã O   /  M E L H O R I A S ######             */
+/*                                                                          */
+/* ************************************************************************ */
+
+/*
+#include <iostream>
+
+int main(int argc, char **argv)
+{
+    (void)argv;
+
+    int count = argc - 1
+    if (count == 0)
+        std::cout << "You passed no arguments." << std::endl;
+    else
+        std::cout << "You passed " << count << " arguments." << std::endl;
+    return (0);   
+}
+*/
