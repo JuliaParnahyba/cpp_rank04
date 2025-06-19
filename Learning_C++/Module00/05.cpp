@@ -6,7 +6,9 @@
 /*    Criado por: jparnahy <jparnahy@student.42.rio>                        */
 /*    Data:       2025/06/19                                                */
 /*                                                                          */
-/*    Descrição: Exemplo de uso de argc e argv e manipulação de argumentos  */
+/*    Descrição: Praticar a saída de dados no terminal usando std::cout     */
+/*               e std::endl, incluindo formatação simples, concatenação    */
+/*               de textos e tipos de dados.                                */  
 /*                                                                          */
 /* ************************************************************************ */
 
