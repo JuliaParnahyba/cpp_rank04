@@ -6,9 +6,7 @@
 /*    Criado por: jparnahy <jparnahy@student.42.rio>                        */
 /*    Data:       2025/06/19                                                */
 /*                                                                          */
-/*    Descrição: Praticar a saída de dados no terminal usando std::cout     */
-/*               e std::endl, incluindo formatação simples, concatenação    */
-/*               de textos e tipos de dados.                                */  
+/*    Descrição: `std::cout`, `std::endl` e saída padrão                    */  
 /*                                                                          */
 /* ************************************************************************ */
 
