@@ -114,7 +114,7 @@ Manipular caracteres isolados com funções da C Standard Library.
 
 <br>
 
-## 🔹 4. Funções auxiliares e boas práticas (modularização)
+## 🔹 4. Modularização e uso correto de `std::string`
 
 ### 🧠 Fundamento:
 
