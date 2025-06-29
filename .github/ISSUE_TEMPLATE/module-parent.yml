@@ -1,0 +1,26 @@
+name: Module Parent Issue
+description: Parent issue to track all exercises of a module
+title: "Module <number> – All Exercises"
+labels: ["module"]
+assignees: []
+
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Module Number
+      description: For example, 00, 01
+      placeholder: "00"
+    validations:
+      required: true
+
+  - type: textarea
+    id: exercises
+    attributes:
+      label: Exercises Checklist
+      description: List the exercises to track progress
+      placeholder: |
+        - [ ] Module <number> – ex00: <Exercise Name>
+        - [ ] Module <number> – ex01: <Exercise Name>
+    validations:
+      required: true

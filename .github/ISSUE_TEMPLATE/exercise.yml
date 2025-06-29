@@ -1,0 +1,47 @@
+name: Exercise Issue
+description: Issue to track an individual exercise
+title: "Module <number> – ex<nn>: <Exercise Name>"
+labels: ["exercise"]
+assignees: []
+
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Module Number
+      description: For example, 00, 01
+      placeholder: "00"
+    validations:
+      required: true
+
+  - type: input
+    id: exercise
+    attributes:
+      label: Exercise Number
+      description: For example, ex00, ex01
+      placeholder: "ex00"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Exercise Description
+      description: Briefly describe what the exercise is about.
+      placeholder: "Implement the program that..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: General Steps
+      description: Checklist to track progress of the exercise
+      options:
+        - label: Create base files
+        - label: Implement main logic
+        - label: Write Makefile
+        - label: Compile with required flags
+        - label: Validate output
+        - label: Validate memory with Valgrind
+        - label: Review canonical form
