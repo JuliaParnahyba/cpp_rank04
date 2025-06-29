@@ -1,0 +1,64 @@
+name: Exercise Task
+description: A detailed task for a specific exercise step
+title: "[Module00 exXX] <Task description>"
+labels: ["task", "module00"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🎯 Task Overview
+        Describe the specific task you are creating.
+
+  - type: input
+    id: exercise
+    attributes:
+      label: Exercise Number
+      description: For example, ex00, ex01
+      placeholder: "ex00"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Task Details
+      description: What exactly should be done in this task?
+      placeholder: "Example: Implement the Zombie class with announce() method..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How urgent is this task?
+      options:
+        - High
+        - Medium
+        - Low
+      default: 1
+    validations:
+      required: true
+
+  - type: input
+    id: branch
+    attributes:
+      label: Branch Name
+      description: Name of the branch where this task will be developed
+      placeholder: "feature/module00-ex00"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Acceptance Criteria
+      description: Check when each step is complete
+      options:
+        - label: Code implemented as per requirement
+        - label: Compiled successfully with -Wall -Wextra -Werror -std=c++98
+        - label: Output matches exercise example
+        - label: Valgrind shows no memory leaks
+        - label: Code reviewed for canonical form and clarity
