@@ -6,7 +6,7 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/16 12:19:04 by jparnahy          #+#    #+#              #
-#    Updated: 2025/05/16 13:32:52 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/06/29 23:46:48 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,13 +92,14 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 #object cleaning
 clean: 
-	@echo "$(RED)$(CROSS) Removing object files... $(RESET)"
+	@echo "$(RED)$(CROSS) Removing object files and directory... $(RESET)"
 	@for i in $$(seq $(PROGRESS_BAR_LENGTH_CLEAN)); do \
 		printf "$(RED_MARK)=$(RESET)"; \
 		sleep 0.015; \
 	done; \
 	$(RM) $(OBJ)
-	@echo "$(YELLOW)  $(BOX) Object files removed.$(RESET)"
+	@$(RM) -rf $(OBJ_DIR)
+	@echo "$(YELLOW)  $(BOX) Object files and directory removed.$(RESET)"
 	@echo
 
 #object and executable cleaning
