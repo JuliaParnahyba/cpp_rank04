@@ -1,6 +1,6 @@
 name: Module Parent Issue
 description: Parent issue to track all exercises of a module
-title: "Module <number> – All Exercises"
+title: "Module <number> | All Exercises"
 labels: ["module"]
 assignees: []
 
@@ -20,7 +20,7 @@ body:
       label: Exercises Checklist
       description: List the exercises to track progress
       placeholder: |
-        - [ ] Module <number> – ex00: <Exercise Name>
-        - [ ] Module <number> – ex01: <Exercise Name>
+        - [ ] Module <number> | ex00: <Exercise Name>
+        - [ ] Module <number> | ex01: <Exercise Name>
     validations:
       required: true

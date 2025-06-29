@@ -1,6 +1,6 @@
 name: Exercise Issue
 description: Issue to track an individual exercise
-title: "Module <number> – ex<nn>: <Exercise Name>"
+title: "Module <number> | ex<nn>: <Exercise Name>"
 labels: ["exercise"]
 assignees: []
 
