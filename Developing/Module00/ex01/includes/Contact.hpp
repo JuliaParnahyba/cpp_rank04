@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 20:44:02 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/07/02 20:58:10 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/01 21:28:32 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ private:
     std::string _lastName;
     std::string _nickname;
     std::string _phoneNumber;
-    std::string _darckSecret;
+    std::string _darkSecret;
 
 public:
     /**
@@ -46,7 +46,7 @@ public:
      * @param fieldName Nome do campo desejado.
      * @return Valor do campo.
      */
-    string getField(std::string fieldName) const;
+    std::string getField(std::string fieldName) const;
 
     /**
      * @brief Exibe o resumo do contato na tabela de listagem.
@@ -58,7 +58,7 @@ public:
      * @brief Exibe todos os detalhes do contato, campo por campo.
      */
     void displayDetails() const;
-}
+};
 
 #endif
 
