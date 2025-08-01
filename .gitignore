@@ -1,7 +1,15 @@
+
+#Binary and Objects
 *.o
 *.out
 *.a
 *.exe
+**/*.out
+**/obj/
+
+#Configs and metadata
 .vscode/
 .DS_Store
+
+#Scripts and local tools
 .scripts/
