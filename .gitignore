@@ -1,11 +1,9 @@
-
 #Binary and Objects
 *.o
 *.out
 *.a
 *.exe
-**/*.out
-**/obj/
+phonebook
 
 #Configs and metadata
 .vscode/
