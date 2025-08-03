@@ -7,7 +7,7 @@ Este módulo tem como objetivo introduzir os fundamentos da Programação Orient
 
 ## 🧠 Conceitos Abordados
 
-- Namespaces
+- Namespaces (com uso proibído)
 - Classes e atributos
 - Funções membro
 - Streams (`std::cout`, `std::cin`)
@@ -23,17 +23,19 @@ Este módulo tem como objetivo introduzir os fundamentos da Programação Orient
 ```bash
 Module00/
 ├── ex00/          # Megaphone
-│   └── megaphone.cpp
+│   ├── megaphone.cpp
+│   └── Makefile
 ├── ex01/          # PhoneBook
-│   ├── Contact.cpp / Contact.hpp
-│   ├── PhoneBook.cpp / PhoneBook.hpp
-│   └── main.cpp
-├── ex02/          # The Job Of Your Dreams
-│   ├── Account.cpp
-│   ├── Account.hpp
-│   └── tests.cpp
-└── Makefile
-````
+│   ├── inputs/
+│   │   ├── Contact.hpp
+│   │   └── PhoneBook.hpp
+│   ├── src/
+│   │   ├── Contact.cpp
+│   │   ├── PhoneBook.cpp
+│   │   └── main.cpp
+│   └── Makefile
+└── ex02/          # The Job Of Your Dreams
+```
 
 <br>
 

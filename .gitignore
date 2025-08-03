@@ -1,7 +1,13 @@
+#Binary and Objects
 *.o
 *.out
 *.a
 *.exe
+phonebook
+
+#Configs and metadata
 .vscode/
 .DS_Store
+
+#Scripts and local tools
 .scripts/
