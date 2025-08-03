@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:30 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 21:32:56 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 21:39:23 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void    PhoneBook::displayContactDetails() const
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }
-        if (index < 0 || index >= this->_size)
+        if (index < 1 || index > this->_size)
         {
             std::cerr << "Invalid index. Please choose a number between 1 and "
                     << this->_size << ".";
