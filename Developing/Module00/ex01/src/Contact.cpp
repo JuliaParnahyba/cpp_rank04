@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:24 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 16:39:21 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 19:13:15 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ std::string Contact::getField(std::string fieldName) const
 
 void Contact::displayDetails() const
 {
-    
     std::cout << "First name     : " << getField("_firstName") << std::endl;
     std::cout << "Last name      : " << getField("_lastName") << std::endl;
     std::cout << "Nickname name  : " << getField("_nickname") << std::endl;
@@ -60,8 +59,6 @@ void Contact::displayDetails() const
 
 void Contact::displaySummary(int index) const
 {
-    printHeader();
-
     std::cout << "|";
     std::cout << std::setw(10) << index;
     std::cout << "|";

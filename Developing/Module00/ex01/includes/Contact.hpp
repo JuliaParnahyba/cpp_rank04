@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 20:44:02 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 16:36:49 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 18:20:58 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ public:
      * @param fieldName Nome do campo ("firstName", "lastName", etc.)
      * @param value Valor a ser atribuído.
      */
-    void setField(std::string fieldName, std::string value);
+    void    setField(std::string fieldName, std::string value);
     
     /**
      * @brief Retorna o valor de um campo específico.
@@ -54,12 +54,12 @@ public:
      * @brief Exibe o resumo do contato na tabela de listagem.
      * @param index Índice do contato no PhoneBook.
      */
-    void displaySummary(int index) const;
+    void    displaySummary(int index) const;
 
     /**
      * @brief Exibe todos os detalhes do contato, campo por campo.
      */
-    void displayDetails() const;
+    void    displayDetails() const;
 };
 
 /* --------- AUX. FUNCTIONS --------- */

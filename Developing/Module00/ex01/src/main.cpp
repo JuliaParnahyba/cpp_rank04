@@ -6,54 +6,49 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 16:42:35 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 19:20:25 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
 
-static void addContact(void)
+static Contact  includeContact(void)
 {
     Contact contact; //Object to use the methods of class
-    
-    std::string _firstName;
-    std::string _lastName;
-    std::string _nickname;
-    std::string _phoneNumber;
-    std::string _darkSecret;
+    std::string _firstName, _lastName, _nickname, _phoneNumber, _darkSecret;
 
-    std::cout << "Now get the informations to include the contact.\n";
+    std::cout << "Now lets insert the informations to include the contact.\n";
 
-    std::cout << "Enter the first name: ";
+    std::cout << "Enter the first name: \n–→ ";
     std::cin >> _firstName;
     contact.setField("_firstName", _firstName);
 
-    std::cout << "Enter the last name: ";
+    std::cout << "Enter the last name: \n–→ ";
     std::cin >> _lastName;
     contact.setField("_lastName", _lastName);
 
-    std::cout << "Enter the nickname: ";
+    std::cout << "Enter the nickname: \n–→ ";
     std::cin >> _nickname;
     contact.setField("_nickname", _nickname);
 
-    std::cout << "Enter the phone number: ";
+    std::cout << "Enter the phone number: \n–→ ";
     std::cin >> _phoneNumber;
     contact.setField("_phoneNumber", _phoneNumber);
 
-    std::cout << "Enter the darkest secret: ";
+    std::cout << "Enter the darkest secret: \n–→ ";
     std::cin >> _darkSecret;
     contact.setField("_darkSecret", _darkSecret);
 
-    std::cout << "\n✅ Contact added! Here's the full data:\n\n";
-    contact.displaySummary(1);
-    contact.displayDetails();
+    std::cout << "\n✅ Contact captured successfully!\n\n";
+    return contact;
 }
 
 int main(int argc, char **argv)
 {
     (void)argv;
     if (argc == 1)
-    {
+    {       
         std::cout << "This is the 80's Phonebook. ";
         std::cout << "Help me to include new contacts.";
         std::cout << "\n";
@@ -61,6 +56,8 @@ int main(int argc, char **argv)
         std::cout << "To search contacts, enter 'SEARCH'\n";
         std::cout << "To see the contact informations, enter 'DISPLAY'\n";
         std::cout << "To finish, write 'EXIT'" << std::endl;
+
+        PhoneBook phonebook;
         
         while(1)
         {
@@ -75,11 +72,13 @@ int main(int argc, char **argv)
                 break;
             }
             else if (input == "ADD")
-                addContact();
+            {
+                Contact c = includeContact();
+                phonebook.addContact(c);
+                std::cout << "✅ Contact added to the phonebook!\n";
+            }
             else if (input == "SEARCH")
-                std::cout << "Search method isnt ready." << std::endl;
-            else if (input == "DISPLAY")
-                std::cout << "Display method isnt ready." << std::endl;
+                phonebook.displayContacts();
             else
                 std::cout << "I dont undestand. Please try again." << std::endl;
         }   
