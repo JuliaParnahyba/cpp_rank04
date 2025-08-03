@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:24 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/01 21:31:08 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 14:05:50 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,21 @@ void Contact::setField(std::string fieldName, std::string value)
     }
 }
 
-//string getField(std::string fieldName) const;
+std::string Contact::getField(std::string fieldName) const
+{
+    if (fieldName == "_firstName")
+        return _firstName;
+    else if (fieldName == "_lastName")
+        return _lastName;
+    else if (fieldName == "_nickname")
+        return _nickname;
+    else if (fieldName == "_phoneNumber")
+        return _phoneNumber;
+    else if (fieldName == "_darkSecret")
+        return "Its a secret";
+    else
+        return "Try the right field.";
+}
 
 //void displaySummary(int index) const;
 

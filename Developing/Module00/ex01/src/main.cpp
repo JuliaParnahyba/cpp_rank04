@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/01 22:37:40 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 14:02:37 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@ static void addContact(void)
     std::cout << "Enter the darkest secret: ";
     std::cin >> _darkSecret;
     contact.setField("_darkSecret", _darkSecret);
+
+    std::cout << "\nYou entered:\n";
+    std::cout << "First name: " << contact.getField("_firstName") << std::endl;
+    std::cout << "Last name: " << contact.getField("_lastName") << std::endl;
+    std::cout << "Nickname name: " << contact.getField("_nickname") << std::endl;
+    std::cout << "Phone Number: " << contact.getField("_phoneNumber") << std::endl;
 }
 
 int main(int argc, char **argv)
@@ -67,6 +73,8 @@ int main(int argc, char **argv)
                 break;
             else if (input == "ADD")
                 addContact();
+            else if (input == "SEARCH")
+                std::cout << "Search method isnt ready." << std::endl;
             else
                 std::cout << "I dont undestand. Please try again." << std::endl;
         }   
