@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 14:38:27 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 16:42:35 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void addContact(void)
     contact.setField("_darkSecret", _darkSecret);
 
     std::cout << "\n✅ Contact added! Here's the full data:\n\n";
+    contact.displaySummary(1);
     contact.displayDetails();
 }
 

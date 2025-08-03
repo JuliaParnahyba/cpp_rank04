@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 20:44:02 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 13:47:09 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 16:36:49 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /* --------- HEADERS --------- */
 #include <string> // for std::string
 #include <iostream> // for std::cout
-
+#include <iomanip> // for std::setw(10)
 
 
 /* --------- CLASSES --------- */
@@ -61,6 +61,10 @@ public:
      */
     void displayDetails() const;
 };
+
+/* --------- AUX. FUNCTIONS --------- */
+void        printHeader(void);
+std::string formatField(std::string value);
 
 #endif
 

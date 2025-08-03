@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:24 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 14:29:09 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 16:39:21 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,16 @@ void Contact::displayDetails() const
     std::cout << "Darkest Secret : " << getField("_darkSecret") << std::endl;
 }
 
-//void displaySummary(int index) const;
+void Contact::displaySummary(int index) const
+{
+    printHeader();
+
+    std::cout << "|";
+    std::cout << std::setw(10) << index;
+    std::cout << "|";
+    std::cout << formatField(getField("_firstName")) << "|";
+    std::cout << formatField(getField("_lastName")) << "|";
+    std::cout << formatField(getField("_nickname")) << "|";
+    std::cout << std::endl;
+}
 
