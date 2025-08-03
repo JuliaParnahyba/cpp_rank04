@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:30 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 21:14:35 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 21:24:13 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,7 @@ void    PhoneBook::displayContactDetails() const
     this->_contacts[index - 1].displayDetails();
 }
 
-/*
-int getSize() const
+int PhoneBook::getSize() const
 {
-    // returna _size
+    returna this->_size
 }
-*/
