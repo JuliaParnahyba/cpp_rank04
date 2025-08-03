@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 20:10:16 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 21:00:14 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@ static Contact  includeContact(void)
     std::cout << "Now lets insert the informations to include the contact.\n";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    std::cout << "Enter the first name: \n–→ ";
+    std::cout << "Enter the first name:\n–→ ";
     std::getline(std::cin, _firstName);
     contact.setField("_firstName", _firstName);
 
-    std::cout << "Enter the last name: \n–→ ";
+    std::cout << "Enter the last name:\n–→ ";
     std::getline(std::cin, _lastName);
     contact.setField("_lastName", _lastName);
 
-    std::cout << "Enter the nickname: \n–→ ";
+    std::cout << "Enter the nickname:\n–→ ";
     std::getline(std::cin, _nickname);
     contact.setField("_nickname", _nickname);
 
-    std::cout << "Enter the phone number: \n–→ ";
+    std::cout << "Enter the phone number:\n–→ ";
     std::getline(std::cin, _phoneNumber);
     contact.setField("_phoneNumber", _phoneNumber);
 
-    std::cout << "Enter the darkest secret: \n–→ ";
+    std::cout << "Enter the darkest secret:\n–→ ";
     std::getline(std::cin, _darkSecret);
     contact.setField("_darkSecret", _darkSecret);
 
@@ -79,7 +79,10 @@ int main(int argc, char **argv)
                 std::cout << "✅ Contact added to the phonebook!\n";
             }
             else if (input == "SEARCH")
+            {
                 phonebook.displayContacts();
+                phonebook.displayContactDetails();
+            }
             else
                 std::cout << "I dont undestand. Please try again." << std::endl;
         }   

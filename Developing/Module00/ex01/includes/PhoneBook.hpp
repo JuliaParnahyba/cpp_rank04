@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:09:22 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 18:18:47 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 20:59:36 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ public:
      * @brief Displays all details of a specific contact
      * @param index Index od the contact to display (0 to 7)
      */
-    void    displayContactDetails(int index) const;
+    void    displayContactDetails() const;
 
     /**
      * @brief Returns how many valid contacts are currently stored

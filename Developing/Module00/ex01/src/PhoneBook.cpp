@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:30 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 19:19:18 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 21:14:35 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,33 @@ void    PhoneBook::displayContacts() const
         this->_contacts[i].displaySummary(i + 1);
 }
 
-/*
-void    displayContactDetails(int index) const
+void    PhoneBook::displayContactDetails() const
 {
-    // se index < 0 ou index >=size:
-    //      imprimir mensagem de erro
-    // senão
-    //      chama _contacts[index].displayDetails()
+    int index;
+    
+    std::cout << "Enter the index of the contact to display:";
+    while (true)
+    {
+        std::cout << "\n–→ ";
+        if (!(std::cin >> index))
+        {
+            std::cerr << "Invalid input. Please enter a valid number.";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
+        if (index < 0 || index >= this->_size)
+        {
+            std::cerr << "Invalid index. Please choose a number between 1 and "
+                    << this->_size << ".";
+            continue;
+        }
+        break;
+    }
+    this->_contacts[index - 1].displayDetails();
 }
 
+/*
 int getSize() const
 {
     // returna _size
