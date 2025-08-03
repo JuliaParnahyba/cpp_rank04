@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 14:02:37 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 14:38:27 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,8 @@ static void addContact(void)
     std::cin >> _darkSecret;
     contact.setField("_darkSecret", _darkSecret);
 
-    std::cout << "\nYou entered:\n";
-    std::cout << "First name: " << contact.getField("_firstName") << std::endl;
-    std::cout << "Last name: " << contact.getField("_lastName") << std::endl;
-    std::cout << "Nickname name: " << contact.getField("_nickname") << std::endl;
-    std::cout << "Phone Number: " << contact.getField("_phoneNumber") << std::endl;
+    std::cout << "\n✅ Contact added! Here's the full data:\n\n";
+    contact.displayDetails();
 }
 
 int main(int argc, char **argv)
@@ -59,22 +56,29 @@ int main(int argc, char **argv)
         std::cout << "This is the 80's Phonebook. ";
         std::cout << "Help me to include new contacts.";
         std::cout << "\n";
-        std::cout << "To includ a new contact, click 'ADD'\n";
+        std::cout << "To includ a new contact, enter 'ADD'\n";
+        std::cout << "To search contacts, enter 'SEARCH'\n";
+        std::cout << "To see the contact informations, enter 'DISPLAY'\n";
         std::cout << "To finish, write 'EXIT'" << std::endl;
         
         while(1)
         {
             std::string input;
 
-            std::cout << "\n\nWhat you want to do?\n";
+            std::cout << "\nWhat you want to do?\n";
             std::cin >> input;
             
             if (input == "EXIT")
+            {
+                std::cout << "Thanks for your participation." << std::endl;
                 break;
+            }
             else if (input == "ADD")
                 addContact();
             else if (input == "SEARCH")
                 std::cout << "Search method isnt ready." << std::endl;
+            else if (input == "DISPLAY")
+                std::cout << "Display method isnt ready." << std::endl;
             else
                 std::cout << "I dont undestand. Please try again." << std::endl;
         }   

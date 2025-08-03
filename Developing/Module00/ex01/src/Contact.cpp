@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:24 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 14:05:50 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 14:29:09 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void Contact::setField(std::string fieldName, std::string value)
 {
-    std::cout << "fieldName = " << fieldName << std::endl;
+    //std::cout << "fieldName = " << fieldName << std::endl;
     if (fieldName == "_firstName")
         _firstName = value;
     else if (fieldName == "_lastName")
@@ -48,6 +48,15 @@ std::string Contact::getField(std::string fieldName) const
         return "Try the right field.";
 }
 
+void Contact::displayDetails() const
+{
+    
+    std::cout << "First name     : " << getField("_firstName") << std::endl;
+    std::cout << "Last name      : " << getField("_lastName") << std::endl;
+    std::cout << "Nickname name  : " << getField("_nickname") << std::endl;
+    std::cout << "Phone Number   : " << getField("_phoneNumber") << std::endl;
+    std::cout << "Darkest Secret : " << getField("_darkSecret") << std::endl;
+}
+
 //void displaySummary(int index) const;
 
-//void displayDetails() const;
