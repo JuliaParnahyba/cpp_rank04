@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 19:20:25 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 20:10:16 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,26 @@ static Contact  includeContact(void)
     std::string _firstName, _lastName, _nickname, _phoneNumber, _darkSecret;
 
     std::cout << "Now lets insert the informations to include the contact.\n";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Enter the first name: \n–→ ";
-    std::cin >> _firstName;
+    std::getline(std::cin, _firstName);
     contact.setField("_firstName", _firstName);
 
     std::cout << "Enter the last name: \n–→ ";
-    std::cin >> _lastName;
+    std::getline(std::cin, _lastName);
     contact.setField("_lastName", _lastName);
 
     std::cout << "Enter the nickname: \n–→ ";
-    std::cin >> _nickname;
+    std::getline(std::cin, _nickname);
     contact.setField("_nickname", _nickname);
 
     std::cout << "Enter the phone number: \n–→ ";
-    std::cin >> _phoneNumber;
+    std::getline(std::cin, _phoneNumber);
     contact.setField("_phoneNumber", _phoneNumber);
 
     std::cout << "Enter the darkest secret: \n–→ ";
-    std::cin >> _darkSecret;
+    std::getline(std::cin, _darkSecret);
     contact.setField("_darkSecret", _darkSecret);
 
     std::cout << "\n✅ Contact captured successfully!\n\n";

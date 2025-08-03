@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 20:44:02 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 18:20:58 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/03 20:09:47 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 /* --------- HEADERS --------- */
 #include <string> // for std::string
 #include <iostream> // for std::cout
+#include <limits> // for clear buffer befor getline
 #include <iomanip> // for std::setw(10)
 
 
