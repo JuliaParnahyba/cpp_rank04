@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:09:22 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/04 17:00:58 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/04 21:06:43 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #define PHONEBOOK_HPP
 
 /* --------- HEADERS --------- */
-#include "Contact.hpp" // to use the Contact Class
-#include <iostream> // for std:cout and std::cin
+#include "Contact.hpp" // the Contact class
+#include <iostream> // for std:cout, std::cin
 
 /* --------- CLASSES --------- */
 /**
@@ -26,9 +26,9 @@
  */
 class PhoneBook {
 private:
-    Contact _contacts[8];   // array to store 8 positions
-    int     _index;         // index of the next position to insert a contact
-    int     _size;          // current number of stored contacts (max 8)
+    Contact _contacts[8];   // Array to store up to 8 contacts
+    int     _index;         // Index of the next position to insert a contact
+    int     _size;          // Current number of stored contacts (max 8)
 
 public:
     /**
@@ -41,7 +41,7 @@ public:
      * If the phonebook is full, it overwrites the oldest one
      * @param newContact The contact object to store
      */
-    void    addContact(Contact newContact);
+    void    addContact(const Contact &newContact);
 
     /**
      * @brief Display a list of all contacts as a table
@@ -50,7 +50,7 @@ public:
 
     /**
      * @brief Displays all details of a specific contact
-     * @param index Index od the contact to display (0 to 7)
+     * Prompts the user for the index and validates the input
      */
     void    displayContactDetails() const;
 
@@ -62,6 +62,9 @@ public:
 };
 
 /* --------- AUX. FUNCTIONS --------- */
+/**
+ * @brief Prints the table header for contact listing
+ */
 void        printHeader(void);
 
 #endif
