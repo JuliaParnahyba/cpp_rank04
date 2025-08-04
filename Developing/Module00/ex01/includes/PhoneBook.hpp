@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:09:22 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/04 21:06:43 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/04 22:38:33 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-/* --------- HEADERS --------- */
-#include "Contact.hpp" // the Contact class
-#include <iostream> // for std:cout, std::cin
+/* --------- STANDARD LIBRARIES --------- */
+#include <iostream>     // for std:cout, std::cin, std::getline
 
-/* --------- CLASSES --------- */
+/* --------- PROJECT HEADERS --------- */
+#include "Contact.hpp"  // the Contact class
+
+/* --------- CLASS --------- */
 /**
  * @class PhoneBook
  * @brief Stores up to 8 contacts and provides operations to manage them

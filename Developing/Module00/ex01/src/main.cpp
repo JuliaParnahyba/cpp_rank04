@@ -6,12 +6,11 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 21:00:14 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/04 22:18:32 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+#include "PhoneBookApp.hpp"
 
 static Contact  includeContact(void)
 {

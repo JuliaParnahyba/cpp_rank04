@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 20:44:02 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/04 18:14:42 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/04 22:42:33 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-/* --------- HEADERS --------- */
-#include <string> // for std::string
-#include <iostream> // for std::cout
-#include <limits> // for clear buffer befor getline
-#include <iomanip> // for std::setw(10)
+/* --------- STANDARD LIBRARIES --------- */
+#include <string>   // for std::string
+#include <iostream> // for std::cout, std::cin, std::getline
+#include <limits>   // for std::numeric_limits, to clear buffer befor getline
+#include <iomanip>  // for std::setw(10)
 
-
-/* --------- CLASSES --------- */
+/* --------- CLASS --------- */
 /**
  * @class Contact
  * @brief Represents a single contact with personal data
@@ -45,8 +44,8 @@ public:
     
     /**
      * @brief Gets the value of a specific field
-     * @param fieldName The name os the field to retrieve
-     * @return The balue os the requested field, or a default message if invalid
+     * @param fieldName The name of the field to retrieve
+     * @return The value of the requested field, or a default message if invalid
      */
     std::string getField(const std::string &fieldName) const;
 
