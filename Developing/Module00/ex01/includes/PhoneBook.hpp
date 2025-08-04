@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:09:22 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 20:59:36 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/04 17:00:58 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,8 @@ public:
      */
     int getSize() const;
 };
+
+/* --------- AUX. FUNCTIONS --------- */
+void        printHeader(void);
 
 #endif
