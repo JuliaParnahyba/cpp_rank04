@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:30 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 21:39:23 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 20:30:52 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,51 +18,77 @@ PhoneBook::PhoneBook()
     this->_size = 0;
 }
 
-void    PhoneBook::addContact(Contact newContact)
+void    PhoneBook::addContact(const Contact &newContact)
 {
     this->_contacts[this->_index] = newContact;
 
     if (this->_size < 8)
         this->_size++;
-
     this->_index++;
-
-    if (_index == 8)
+    if (this->_index == 8)
         this->_index = 0;
-}
-
-void    PhoneBook::displayContacts() const
-{
-    printHeader();
-    
-    for (int i = 0; i < this->_size; i++)
-        this->_contacts[i].displaySummary(i + 1);
 }
 
 void    PhoneBook::displayContactDetails() const
 {
+    std::string input;
     int index;
     
-    std::cout << "Enter the index of the contact to display:";
-    while (true)
-    {
+    std::cout << "\nPlease, Enter the index of the contact to display:";
+    while (true) {
         std::cout << "\n–→ ";
-        if (!(std::cin >> index))
-        {
-            std::cerr << "Invalid input. Please enter a valid number.";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::getline(std::cin, input);
+        bool isNumber = isNumericString(input);
+        if (!isNumber) {
+            std::cout << "⚠️ Invalid input. Please enter a number.";
             continue;
         }
-        if (index < 1 || index > this->_size)
-        {
-            std::cerr << "Invalid index. Please choose a number between 1 and "
+        index = std::atoi(input.c_str());
+        if (index < 1 || index > this->_size) {
+            std::cerr << "⚠️ Invalid index. Please choose a number between 1 and "
                     << this->_size << ".";
             continue;
         }
         break;
     }
     this->_contacts[index - 1].displayDetails();
+}
+
+bool    PhoneBook::detailsLoop() const
+{
+    this->displayContactDetails();
+    std::string choice;
+    while (true) {
+        std::cout << "\nDo you want to see another contact's details? (y/n)\n–→ ";
+        std::getline(std::cin, choice);
+        if (choice == "y" || choice == "Y")
+            this->displayContactDetails();
+        else if (choice == "n" || choice == "N")
+            return false;
+        else
+            std::cout << "⚠️ Invalid input. Please type 'y' or 'n'.\n";
+    }
+}
+
+void    PhoneBook::displayContacts() const
+{
+    std::cout << "\n================ SEARCH MODE ================\n";
+    printHeader();
+    for (int i = 0; i < this->_size; i++)
+        this->_contacts[i].displaySummary(i + 1);
+    std::string choice;
+    while (true) {
+        std::cout << "\nDo you want to see some contact details? (y/n)\n–→ ";
+        std::getline(std::cin, choice);
+        if (choice == "y" || choice == "Y") {
+            if (!detailsLoop())
+                return;
+        }
+        else if (choice == "n" || choice == "N")
+            return;
+        else
+            std::cout << "⚠️ Invalid input. Please type 'y' or 'n'.\n";
+    }
 }
 
 int PhoneBook::getSize() const

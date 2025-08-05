@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 20:44:02 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/03 20:09:47 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 20:06:40 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,57 +15,63 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-/* --------- HEADERS --------- */
-#include <string> // for std::string
-#include <iostream> // for std::cout
-#include <limits> // for clear buffer befor getline
-#include <iomanip> // for std::setw(10)
+/* --------- STANDARD LIBRARIES --------- */
+#include <string>   // for std::string, std::stoi
+#include <iostream> // for std::cout, std::cin, std::getline
+#include <limits>   // for std::numeric_limits, to clear buffer befor getline
+#include <iomanip>  // for std::setw(10)
 
-
-/* --------- CLASSES --------- */
+/* --------- CLASS --------- */
 /**
  * @class Contact
- * @brief Representa um único contato com seus dados pessoais.
+ * @brief Represents a single contact with personal data
  */
 class Contact {
 private:
-    // Atributos privados que armazenam cada campo do contato.
-    std::string _firstName;
-    std::string _lastName;
-    std::string _nickname;
-    std::string _phoneNumber;
-    std::string _darkSecret;
+    std::string _firstName;     // First name of the contact
+    std::string _lastName;      // Last name of the contact
+    std::string _nickname;      // Nickname of the contact
+    std::string _phoneNumber;   // Phone number of the contact
+    std::string _darkSecret;    // The contact's darkest secret
 
 public:
     /**
-     * @brief Define o valor de um campo do contato.
-     * @param fieldName Nome do campo ("firstName", "lastName", etc.)
-     * @param value Valor a ser atribuído.
+     * @brief Sets the value of a specific field
+     * @param fieldName The name of the field ("_firstName", "_lastName", etc.)
+     * @param value The value to assign to the field
      */
-    void    setField(std::string fieldName, std::string value);
+    void    setField(const std::string &fieldName, const std::string &value);
     
     /**
-     * @brief Retorna o valor de um campo específico.
-     * @param fieldName Nome do campo desejado.
-     * @return Valor do campo.
+     * @brief Gets the value of a specific field
+     * @param fieldName The name of the field to retrieve
+     * @return The value of the requested field, or a default message if invalid
      */
-    std::string getField(std::string fieldName) const;
+    std::string getField(const std::string &fieldName) const;
 
     /**
-     * @brief Exibe o resumo do contato na tabela de listagem.
-     * @param index Índice do contato no PhoneBook.
+     * @brief Display the contact in a table row format
+     * @param index The index of the contact in the phonebook
      */
     void    displaySummary(int index) const;
 
     /**
-     * @brief Exibe todos os detalhes do contato, campo por campo.
+     * @brief Display all details of the contact
      */
     void    displayDetails() const;
 };
 
 /* --------- AUX. FUNCTIONS --------- */
-void        printHeader(void);
-std::string formatField(std::string value);
+/**
+ * @brief Formats a string for table display (width=10, truncate if necessary)
+ * @param value The string to format
+ * @return The formatted string
+ */
+std::string formatField(const std::string &value);
+
+std::string formatNameCase(const std::string &input);
+std::string formatSetenceCase(const std::string &input);
+std::string formatPhoneNumber(const std::string &input);
 
 #endif
 
