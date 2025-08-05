@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:30 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 18:31:57 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 19:24:04 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ bool    PhoneBook::detailsLoop() const
             continue;
         else if (choice == "n" || choice == "N")
             return false;
-        else
+        else {
             std::cout << "⊘ Invalid input. Please type 'y' or 'n'.\n";
+            continue;
+        }
     }
 }
 

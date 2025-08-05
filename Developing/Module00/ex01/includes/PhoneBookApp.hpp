@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 22:07:31 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 17:02:03 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 19:17:23 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,28 @@
 #include "PhoneBook.hpp"    // PhoneBook class
 
 /* --------- FUNCTION PROTOTYPES --------- */
+/* ------ AUX. FUNCTIONS ------ */
+void        runPhoneBook();
+
 // UX-UI
 void        showWelcomeMessage();
 void        showInstructions();
-void        runPhoneBook();
 
-// ADD flow
 bool        isPhoneNumberValid(const std::string &phone);
 std::string fillContactField(const std::string &prompt, bool isPhone = false);
 void        editContactField(Contact &contact);
 bool        confirmAddSaveContact(Contact &contact, PhoneBook &phonebook);
 void        handleAddContact(PhoneBook &phonebook);
+
+/**
+ * @brief Formats a string for table display (width=10, truncate if necessary)
+ * @param value The string to format
+ * @return The formatted string
+ */
+std::string formatField(const std::string &value);
+
+std::string formatNameCase(const std::string &input);
+std::string formatSetenceCase(const std::string &input);
+std::string formatPhoneNumber(const std::string &input);
 
 #endif
