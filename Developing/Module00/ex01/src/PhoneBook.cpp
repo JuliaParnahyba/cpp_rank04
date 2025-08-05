@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:30 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 17:32:42 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 18:31:57 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void    PhoneBook::displayContactDetails() const
         std::getline(std::cin, input);
         bool isNumber = isNumericString(input);
         if (!isNumber) {
-            std::cout << "❌ Invalid input. Please enter a number.";
+            std::cout << "⊘ Invalid input. Please enter a number.";
             continue;
         }
         index = std::atoi(input.c_str());
         if (index < 1 || index > this->_size) {
-            std::cerr << "❌ Invalid index. Please choose a number between 1 and "
+            std::cerr << "⊘ Invalid index. Please choose a number between 1 and "
                     << this->_size << ".";
             continue;
         }
@@ -66,13 +66,13 @@ bool    PhoneBook::detailsLoop() const
         else if (choice == "n" || choice == "N")
             return false;
         else
-            std::cout << "❌ Invalid input. Please type 'y' or 'n'.\n";
+            std::cout << "⊘ Invalid input. Please type 'y' or 'n'.\n";
     }
 }
 
 void    PhoneBook::displayContacts() const
 {
-    std::cout << "\n============ SEARCH MODE ============\n";
+    std::cout << "\n================ SEARCH MODE ================\n";
     printHeader();
     for (int i = 0; i < this->_size; i++)
         this->_contacts[i].displaySummary(i + 1);
@@ -87,7 +87,7 @@ void    PhoneBook::displayContacts() const
         else if (choice == "n" || choice == "N")
             return;
         else
-            std::cout << "❌ Invalid input. Please type 'y' or 'n'.\n";
+            std::cout << "⊘ Invalid input. Please type 'y' or 'n'.\n";
     }
 }
 

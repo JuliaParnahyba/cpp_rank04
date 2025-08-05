@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 22:51:18 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 17:40:39 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 18:31:12 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void    editContactField(Contact &contact)
     else if (choice == "5")
         contact.setField("_darkSecret", fillContactField("Enter the darkest secret:"));
     else
-        std::cout << "❌ Invalid option.\n";
+        std::cout << "⊘ Invalid option.\n";
 }
 
 bool    confirmAddSaveContact(Contact &contact, PhoneBook &phonebook)
@@ -74,13 +74,13 @@ bool    confirmAddSaveContact(Contact &contact, PhoneBook &phonebook)
         std::getline(std::cin, confirm);
         if (confirm == "y" || confirm == "Y") {
             phonebook.addContact(contact);
-            std::cout << "✅ Contact added to the phonebook!\n";
+            std::cout << "✓ Contact added to the phonebook!\n";
             return true;
         }
         else if (confirm == "n" || confirm == "N")
             editContactField(contact);
         else
-            std::cout << "❌ Invalid input. Please type 'y' or 'n'.\n";
+            std::cout << "⊘ Invalid input. Please type 'y' or 'n'.\n";
     }
 }
 
@@ -121,6 +121,6 @@ void handleAddContact(PhoneBook &phonebook)
         else if (confirm == "N" || confirm == "n")
             return;
         else
-            std::cout << "❌ Invalid input. Please type 'y' or 'n'.\n";
+            std::cout << "⊘ Invalid input. Please type 'y' or 'n'.\n";
     }
 }
