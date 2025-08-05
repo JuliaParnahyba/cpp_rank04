@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 20:44:02 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 19:14:46 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 20:06:40 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,10 @@ public:
  * @return The formatted string
  */
 std::string formatField(const std::string &value);
+
+std::string formatNameCase(const std::string &input);
+std::string formatSetenceCase(const std::string &input);
+std::string formatPhoneNumber(const std::string &input);
 
 #endif
 

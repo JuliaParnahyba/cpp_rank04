@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 18:29:31 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 20:17:01 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    showInstructions()
 {
-    std::cout << "\n⩸ Instructions\n"
+    std::cout << "\n📒 Instructions\n"
             << "==================================================================\n";
     std::cout << "Main Usage:\n"
             << "  ADD           - Add a new contact\n"
@@ -61,7 +61,7 @@ void runPhoneBook()
             handleAddContact(phonebook);
         else if (input == "SEARCH") {
             if (phonebook.getSize() == 0) {
-                std::cout << "⊘ No contacts available."
+                std::cout << "⚠️ No contacts available."
                         << "Use ADD to create a new contact." << std::endl;
                 continue;
             }
@@ -70,7 +70,7 @@ void runPhoneBook()
         else if (input == "man" || input == "man phonebook")
             showInstructions();
         else
-            std::cout << "⊘ Unknown command. Type 'man phonebook' for help.\n";
+            std::cout << "⚠️ Unknown command. Type 'man phonebook' for help.\n";
     }
 }
 

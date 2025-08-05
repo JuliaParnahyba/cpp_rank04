@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:30 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 19:24:04 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 20:30:52 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void    PhoneBook::displayContactDetails() const
         std::getline(std::cin, input);
         bool isNumber = isNumericString(input);
         if (!isNumber) {
-            std::cout << "⊘ Invalid input. Please enter a number.";
+            std::cout << "⚠️ Invalid input. Please enter a number.";
             continue;
         }
         index = std::atoi(input.c_str());
         if (index < 1 || index > this->_size) {
-            std::cerr << "⊘ Invalid index. Please choose a number between 1 and "
+            std::cerr << "⚠️ Invalid index. Please choose a number between 1 and "
                     << this->_size << ".";
             continue;
         }
@@ -56,19 +56,17 @@ void    PhoneBook::displayContactDetails() const
 
 bool    PhoneBook::detailsLoop() const
 {
+    this->displayContactDetails();
     std::string choice;
     while (true) {
-        this->displayContactDetails();
         std::cout << "\nDo you want to see another contact's details? (y/n)\n–→ ";
         std::getline(std::cin, choice);
         if (choice == "y" || choice == "Y")
-            continue;
+            this->displayContactDetails();
         else if (choice == "n" || choice == "N")
             return false;
-        else {
-            std::cout << "⊘ Invalid input. Please type 'y' or 'n'.\n";
-            continue;
-        }
+        else
+            std::cout << "⚠️ Invalid input. Please type 'y' or 'n'.\n";
     }
 }
 
@@ -89,7 +87,7 @@ void    PhoneBook::displayContacts() const
         else if (choice == "n" || choice == "N")
             return;
         else
-            std::cout << "⊘ Invalid input. Please type 'y' or 'n'.\n";
+            std::cout << "⚠️ Invalid input. Please type 'y' or 'n'.\n";
     }
 }
 

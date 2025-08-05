@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 22:51:18 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 19:27:43 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 20:23:25 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ void    editContactField(Contact &contact)
     else if (choice == "5")
         contact.setField("_darkSecret", fillContactField("Enter the darkest secret:"));
     else
-        std::cout << "⊘ Invalid option.\n";
+        std::cout << "❌ Invalid option.\n";
 }
 
 bool    confirmAddSaveContact(Contact &contact, PhoneBook &phonebook)
 {
     while (true) {
         std::cout << "\n________________________________\n";
-        std::cout << "\n📋 Review Contact Information ↴\n";
+        std::cout << "\n👀 Review Contact Information ↴\n";
         contact.displayDetails();
         std::cout << "________________________________\n";
 
@@ -74,13 +74,28 @@ bool    confirmAddSaveContact(Contact &contact, PhoneBook &phonebook)
         std::getline(std::cin, confirm);
         if (confirm == "y" || confirm == "Y") {
             phonebook.addContact(contact);
-            std::cout << "✓ Contact added to the phonebook!\n";
+            std::cout << "✅ Contact added to the phonebook!\n";
             return true;
         }
-        else if (confirm == "n" || confirm == "N")
-            editContactField(contact);
+        else if (confirm == "n" || confirm == "N") {
+            while (true) {
+                std::string action;
+                std::cout << "\nDo you want to cancel this contact or edit a field? (CANCEL/EDIT)\n–→ ";
+                std::getline(std::cin, action);
+                if (action == "CANCEL" || action == "cancel") {
+                    std::cout << "❌ Contact not saved.\n";
+                    return false;
+                }
+                else if (action == "EDIT" || action == "edit") {
+                    editContactField(contact);
+                    break;
+                }
+                else
+                    std::cout << "⚠️ Invalid input. Please type 'CANCEL' or 'EDIT'.\n";
+            }
+        }
         else
-            std::cout << "⊘ Invalid input. Please type 'y' or 'n'.\n";
+            std::cout << "⚠️ Invalid input. Please type 'y' or 'n'.\n";
     }
 }
 
@@ -93,23 +108,23 @@ void handleAddContact(PhoneBook &phonebook)
     while (true) {
         std::string firstName = fillContactField("Enter the first name:");
         if (firstName == "CANCEL") return;
-        contact.setField("_firstName", formatNameCase(firstName));
+        contact.setField("_firstName", firstName);
 
         std::string lastName = fillContactField("Enter the last name:");
         if (lastName == "CANCEL") return;
-        contact.setField("_lastName", formatNameCase(lastName));
+        contact.setField("_lastName", lastName);
 
         std::string nickname = fillContactField("Enter the nickname:");
         if (nickname == "CANCEL") return;
-        contact.setField("_nickname", formatNameCase(nickname));
+        contact.setField("_nickname", nickname);
 
         std::string phoneNumber = fillContactField("Enter the phone number:", true);
         if (phoneNumber == "CANCEL") return;
-        contact.setField("_phoneNumber", formatPhoneNumber(phoneNumber));
+        contact.setField("_phoneNumber", phoneNumber);
 
         std::string darkSecret = fillContactField("Enter the darkest secret:");
         if (darkSecret == "CANCEL") return;
-        contact.setField("_darkSecret", formatSetenceCase(darkSecret));
+        contact.setField("_darkSecret", darkSecret);
 
         confirmAddSaveContact(contact, phonebook);
         
@@ -120,9 +135,7 @@ void handleAddContact(PhoneBook &phonebook)
             continue;
         else if (confirm == "N" || confirm == "n")
             return;
-        else {
-            std::cout << "⊘ Invalid input. Please type 'y' or 'n'.\n";
-            continue;
-        }
+        else 
+            std::cout << "⚠️ Invalid input. Please type 'y' or 'n'.\n";
     }
 }

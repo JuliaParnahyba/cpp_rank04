@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:24 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 19:13:07 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 20:12:46 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void Contact::setField(const std::string &fieldName, const std::string &value)
 {
     if (fieldName == "_firstName")
-        this->_firstName = value;
+        this->_firstName = formatNameCase(value);
     else if (fieldName == "_lastName")
-        this->_lastName = value;
+        this->_lastName = formatNameCase(value);
     else if (fieldName == "_nickname")
-        this->_nickname = value;
+        this->_nickname = formatNameCase(value);
     else if (fieldName == "_phoneNumber")
-        this->_phoneNumber = value;
+        this->_phoneNumber = formatPhoneNumber(value);
     else if (fieldName == "_darkSecret")
-        this->_darkSecret = value;
+        this->_darkSecret = formatSetenceCase(value);
     else {
         std::cout << "Invalid field name. Valid options are:\n"
                 << "_firstName, _lastName, _nickname, _phoneNumber, _darkSecret"
