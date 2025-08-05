@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 22:51:18 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 20:23:25 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 20:53:53 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ void    editContactField(Contact &contact)
 bool    confirmAddSaveContact(Contact &contact, PhoneBook &phonebook)
 {
     while (true) {
-        std::cout << "\n________________________________\n";
+        std::cout << "\n__________________________________________\n";
         std::cout << "\n👀 Review Contact Information ↴\n";
         contact.displayDetails();
-        std::cout << "________________________________\n";
+        std::cout << "__________________________________________\n";
 
         std::string confirm;
         std::cout << "\nDo you want to save this contact? (y/n)\n–→ ";
@@ -101,11 +101,12 @@ bool    confirmAddSaveContact(Contact &contact, PhoneBook &phonebook)
 
 void handleAddContact(PhoneBook &phonebook)
 {
-    std::cout << "\n============ ADD NEW CONTACT ============\n\n";
+    std::cout << "\n================ ADD NEW CONTACT ================\n";
     std::string confirm;
     Contact contact;
     
     while (true) {
+        std::cout << "\n";
         std::string firstName = fillContactField("Enter the first name:");
         if (firstName == "CANCEL") return;
         contact.setField("_firstName", firstName);
