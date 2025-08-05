@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:09:22 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/04 22:38:33 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:11:17 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 #define PHONEBOOK_HPP
 
 /* --------- STANDARD LIBRARIES --------- */
-#include <iostream>     // for std:cout, std::cin, std::getline
+#include <string>   // for std::string
+#include <iostream> // for std:cout, std::cin, std::getline
+#include <cstdlib>  // for std::atoi
+#include <cctype>   // for std::isdigit
 
 /* --------- PROJECT HEADERS --------- */
 #include "Contact.hpp"  // the Contact class
@@ -57,6 +60,11 @@ public:
     void    displayContactDetails() const;
 
     /**
+     * @brief Loop for user get details contacts.
+     */
+    bool    detailsLoop() const;
+
+    /**
      * @brief Returns how many valid contacts are currently stored
      * @return The current number os stored contacts
      */
@@ -67,6 +75,10 @@ public:
 /**
  * @brief Prints the table header for contact listing
  */
-void        printHeader(void);
+void    printHeader(void);
+/**
+ * @brief Check if the input is a numeric char
+ */
+bool    isNumericString(const std::string &str);
 
 #endif

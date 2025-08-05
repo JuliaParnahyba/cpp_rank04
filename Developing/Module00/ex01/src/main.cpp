@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 00:46:25 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 15:41:28 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void    showInstructions()
 {
+    std::cout << "\n";
     std::cout << "Main Usage:\n"
             << "  ADD           - Add a new contact\n"
             << "  SEARCH        - Search and display contacts\n"
@@ -28,10 +29,14 @@ void    showInstructions()
 
 void    showWelcomeMessage()
 {
-    std::cout << "\n-------------------------------------------\n";
-    std::cout << "📞 Welcome to the 80's PhoneBook!\n";
-    std::cout << "Helping you store up to 8 amazing contacts.\n";
-    std::cout << "-------------------------------------------\n\n";
+    std::cout << "\n";
+    std::cout << "|=================================================|\n";
+    std::cout << "|                                                 |\n";
+    std::cout << "|      📞 Welcome to the 80's PhoneBook! ☎️        |\n";
+    std::cout << "|   Helping you store up to 8 amazing contacts.   |\n";
+    std::cout << "|                                                 |\n";
+    std::cout << "|________________________________ By: jparnahy ___|\n";
+    std::cout << "|=================================================|\n";
     showInstructions();
 }
 
@@ -53,8 +58,12 @@ void runPhoneBook()
         else if (input == "ADD")
             handleAddContact(phonebook);
         else if (input == "SEARCH") {
+            if (phonebook.getSize() == 0) {
+                std::cout << "⚠️    No contacts available."
+                        << "Use ADD to create a new contact." << std::endl;
+                continue;
+            }
             phonebook.displayContacts();
-            phonebook.displayContactDetails();
         }
         else if (input == "man" || input == "man phonebook")
             showInstructions();

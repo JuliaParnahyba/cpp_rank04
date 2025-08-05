@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 22:07:31 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 00:55:53 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:02:03 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include <iostream> // for std::cout, std::cin, std::getline
 #include <limits>   // for std::numeric_limits, to clear buffer befor getline
 #include <iomanip>  // for std::setw
+#include <cstdlib>  // for std::atoi
+#include <cctype>   // for std::isdigit
 
 /* --------- PROJECT HEADERS --------- */
 #include "Contact.hpp"      // Contact class

@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 16:03:34 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 00:06:07 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 16:57:40 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void    printHeader(void)
 {
+    std::cout << "\n";
     std::cout << "|" << std::setw(10) << "Index"
             << "|" << std::setw(10) << "First Name"
             << "|" << std::setw(10) << "Last Name"
@@ -37,5 +38,14 @@ bool    isPhoneNumberValid(const std::string &phone)
             return false;
     }
     return true;
-    
+}
+bool        isNumericString(const std::string &str)
+{
+    if (str.empty())
+        return false;
+    for (size_t i = 0; i <str.length(); i++) {
+        if (!std::isdigit(static_cast<unsigned char>(str[i])))
+            return false;
+    }
+    return true;
 }

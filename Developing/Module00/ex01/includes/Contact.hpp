@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 20:44:02 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/04 22:42:33 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 16:48:04 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #define CONTACT_HPP
 
 /* --------- STANDARD LIBRARIES --------- */
-#include <string>   // for std::string
+#include <string>   // for std::string, std::stoi
 #include <iostream> // for std::cout, std::cin, std::getline
 #include <limits>   // for std::numeric_limits, to clear buffer befor getline
 #include <iomanip>  // for std::setw(10)
