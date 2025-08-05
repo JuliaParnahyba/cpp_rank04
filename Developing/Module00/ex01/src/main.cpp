@@ -6,87 +6,71 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/04 22:18:32 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 00:27:17 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBookApp.hpp"
 
-static Contact  includeContact(void)
+void    showInstructions()
 {
-    Contact contact; //Object to use the methods of class
-    std::string _firstName, _lastName, _nickname, _phoneNumber, _darkSecret;
+    std::cout << "Main Usage:\n"
+            << "  ADD           - Add a new contact\n"
+            << "  SEARCH        - Search and display contacts\n"
+            << "  EXIT          - Quit the program\n"
+            << std::endl;
+    
+    std::cout << "Plus Usage:\n"
+            << "  CANCEL        - Cancel current operation (when adding a contact)\n"
+            << "  man phonebook - Show these instructions again\n"
+            << std::endl;
+}
 
-    std::cout << "Now lets insert the informations to include the contact.\n";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+void    showWelcomeMessage()
+{
+    std::cout << "\n-------------------------------------------\n";
+    std::cout << "📞 Welcome to the 80's PhoneBook!\n";
+    std::cout << "Helping you store up to 8 amazing contacts.\n";
+    std::cout << "-------------------------------------------\n\n";
+    showInstructions();
+}
 
-    std::cout << "Enter the first name:\n–→ ";
-    std::getline(std::cin, _firstName);
-    contact.setField("_firstName", _firstName);
+void runPhoneBook()
+{
+    PhoneBook phonebook;
+    std::string input;
 
-    std::cout << "Enter the last name:\n–→ ";
-    std::getline(std::cin, _lastName);
-    contact.setField("_lastName", _lastName);
+    while (true)
+    {
+        std::cout << "\nWhat do you want to do?\n–→ ";
+        std::cin >> input;
 
-    std::cout << "Enter the nickname:\n–→ ";
-    std::getline(std::cin, _nickname);
-    contact.setField("_nickname", _nickname);
-
-    std::cout << "Enter the phone number:\n–→ ";
-    std::getline(std::cin, _phoneNumber);
-    contact.setField("_phoneNumber", _phoneNumber);
-
-    std::cout << "Enter the darkest secret:\n–→ ";
-    std::getline(std::cin, _darkSecret);
-    contact.setField("_darkSecret", _darkSecret);
-
-    std::cout << "\n✅ Contact captured successfully!\n\n";
-    return contact;
+        if (input == "EXIT") {
+            std::cout << "Thanks for using the PhoneBook!\n"
+                    << " 👋 See you later..." << std::endl;
+            break;
+        }
+        else if (input == "ADD")
+            handleAddContact(phonebook);
+        else if (input == "SEARCH") {
+            phonebook.displayContacts();
+            phonebook.displayContactDetails();
+        }
+        else if (input == "man" || input == "man phonebook")
+            showInstructions();
+        else
+            std::cout << "⚠️  Unknown command. Type 'man phonebook' for help.\n";
+    }
 }
 
 int main(int argc, char **argv)
 {
     (void)argv;
-    if (argc == 1)
-    {       
-        std::cout << "This is the 80's Phonebook. ";
-        std::cout << "Help me to include new contacts.";
-        std::cout << "\n";
-        std::cout << "To includ a new contact, enter 'ADD'\n";
-        std::cout << "To search contacts, enter 'SEARCH'\n";
-        std::cout << "To see the contact informations, enter 'DISPLAY'\n";
-        std::cout << "To finish, write 'EXIT'" << std::endl;
-
-        PhoneBook phonebook;
-        
-        while(1)
-        {
-            std::string input;
-
-            std::cout << "\nWhat you want to do?\n";
-            std::cin >> input;
-            
-            if (input == "EXIT")
-            {
-                std::cout << "Thanks for your participation." << std::endl;
-                break;
-            }
-            else if (input == "ADD")
-            {
-                Contact c = includeContact();
-                phonebook.addContact(c);
-                std::cout << "✅ Contact added to the phonebook!\n";
-            }
-            else if (input == "SEARCH")
-            {
-                phonebook.displayContacts();
-                phonebook.displayContactDetails();
-            }
-            else
-                std::cout << "I dont undestand. Please try again." << std::endl;
-        }   
+    if (argc != 1) {
+        std::cout << "Please run without arguments." << std::endl;
     }
-    else
-        std::cout << "Please enter only the program name." << std::endl;
+    showWelcomeMessage();
+    runPhoneBook();
     return 0;
 }
+
