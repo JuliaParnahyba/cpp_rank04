@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 15:41:28 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:38:10 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void    showInstructions()
 {
-    std::cout << "\n";
+    std::cout << "\n📖 Instructions\n"
+            << "==================================================================\n";
     std::cout << "Main Usage:\n"
             << "  ADD           - Add a new contact\n"
             << "  SEARCH        - Search and display contacts\n"
@@ -24,19 +25,20 @@ void    showInstructions()
     std::cout << "Plus Usage:\n"
             << "  CANCEL        - Cancel current operation (when adding a contact)\n"
             << "  man phonebook - Show these instructions again\n"
+            << "==================================================================\n"
             << std::endl;
 }
 
 void    showWelcomeMessage()
 {
     std::cout << "\n";
-    std::cout << "|=================================================|\n";
-    std::cout << "|                                                 |\n";
-    std::cout << "|      📞 Welcome to the 80's PhoneBook! ☎️        |\n";
-    std::cout << "|   Helping you store up to 8 amazing contacts.   |\n";
-    std::cout << "|                                                 |\n";
-    std::cout << "|________________________________ By: jparnahy ___|\n";
-    std::cout << "|=================================================|\n";
+    std::cout << "|================================================================|\n";
+    std::cout << "|                                                                |\n";
+    std::cout << "|              📞 Welcome to the 80's PhoneBook! ☎️               |\n";
+    std::cout << "|          Helping you store up to 8 amazing contacts.           |\n";
+    std::cout << "|                                                                |\n";
+    std::cout << "|_______________________________________________ By: jparnahy ___|\n";
+    std::cout << "|================================================================|\n";
     showInstructions();
 }
 

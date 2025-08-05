@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 16:03:34 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 16:57:40 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:32:54 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void    printHeader(void)
 {
-    std::cout << "\n";
     std::cout << "|" << std::setw(10) << "Index"
             << "|" << std::setw(10) << "First Name"
             << "|" << std::setw(10) << "Last Name"

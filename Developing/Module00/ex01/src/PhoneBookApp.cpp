@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 22:51:18 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 14:19:20 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:40:39 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ void    editContactField(Contact &contact)
 bool    confirmAddSaveContact(Contact &contact, PhoneBook &phonebook)
 {
     while (true) {
+        std::cout << "\n________________________________\n";
         std::cout << "\n📋 Review Contact Information ↴\n";
         contact.displayDetails();
+        std::cout << "________________________________\n";
 
         std::string confirm;
         std::cout << "\nDo you want to save this contact? (y/n)\n–→ ";
@@ -84,28 +86,41 @@ bool    confirmAddSaveContact(Contact &contact, PhoneBook &phonebook)
 
 void handleAddContact(PhoneBook &phonebook)
 {
-    std::cout << "\n";
+    std::cout << "\n============ ADD NEW CONTACT ============\n\n";
+    std::string confirm;
     Contact contact;
+    
+    while (true) {
+        std::string firstName = fillContactField("Enter the first name:");
+        if (firstName == "CANCEL") return;
+        contact.setField("_firstName", firstName);
 
-    std::string firstName = fillContactField("Enter the first name:");
-    if (firstName == "CANCEL") return;
-    contact.setField("_firstName", firstName);
+        std::string lastName = fillContactField("Enter the last name:");
+        if (lastName == "CANCEL") return;
+        contact.setField("_lastName", lastName);
 
-    std::string lastName = fillContactField("Enter the last name:");
-    if (lastName == "CANCEL") return;
-    contact.setField("_lastName", lastName);
+        std::string nickname = fillContactField("Enter the nickname:");
+        if (nickname == "CANCEL") return;
+        contact.setField("_nickname", nickname);
 
-    std::string nickname = fillContactField("Enter the nickname:");
-    if (nickname == "CANCEL") return;
-    contact.setField("_nickname", nickname);
+        std::string phoneNumber = fillContactField("Enter the phone number:", true);
+        if (phoneNumber == "CANCEL") return;
+        contact.setField("_phoneNumber", phoneNumber);
 
-    std::string phoneNumber = fillContactField("Enter the phone number:", true);
-    if (phoneNumber == "CANCEL") return;
-    contact.setField("_phoneNumber", phoneNumber);
+        std::string darkSecret = fillContactField("Enter the darkest secret:");
+        if (darkSecret == "CANCEL") return;
+        contact.setField("_darkSecret", darkSecret);
 
-    std::string darkSecret = fillContactField("Enter the darkest secret:");
-    if (darkSecret == "CANCEL") return;
-    contact.setField("_darkSecret", darkSecret);
-
-    confirmAddSaveContact(contact, phonebook);
+        confirmAddSaveContact(contact, phonebook);
+        
+        std::string confirm;
+        std::cout << "\nDo you want to save another contact? (y/n)\n–→ ";
+        std::getline(std::cin, confirm);
+        if (confirm == "Y" || confirm == "y")
+            continue;
+        else if (confirm == "N" || confirm == "n")
+            return;
+        else
+            std::cout << "❌ Invalid input. Please type 'y' or 'n'.\n";
+    }
 }

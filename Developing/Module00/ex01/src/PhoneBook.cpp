@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:30 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 17:14:11 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:32:42 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ bool    PhoneBook::detailsLoop() const
 
 void    PhoneBook::displayContacts() const
 {
+    std::cout << "\n============ SEARCH MODE ============\n";
     printHeader();
     for (int i = 0; i < this->_size; i++)
         this->_contacts[i].displaySummary(i + 1);
