@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 22:07:31 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/04 22:43:00 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 00:55:53 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@
 #include "PhoneBook.hpp"    // PhoneBook class
 
 /* --------- FUNCTION PROTOTYPES --------- */
-/* PhoneBookApp.cpp */
 // UX-UI
-void showWelcomeMessage();
-void showInstructions();
-void runPhoneBook();
+void        showWelcomeMessage();
+void        showInstructions();
+void        runPhoneBook();
 
 // ADD flow
-bool isPhoneNumberValid(const std::string &phone);
+bool        isPhoneNumberValid(const std::string &phone);
 std::string fillContactField(const std::string &prompt, bool isPhone = false);
-void handleAddContact(PhoneBook &phonebook);
+void        editContactField(Contact &contact);
+bool        confirmAddSaveContact(Contact &contact, PhoneBook &phonebook);
+void        handleAddContact(PhoneBook &phonebook);
 
 #endif

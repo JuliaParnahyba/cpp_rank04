@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:11:10 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/05 00:27:17 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 00:46:25 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void runPhoneBook()
     while (true)
     {
         std::cout << "\nWhat do you want to do?\n–→ ";
-        std::cin >> input;
+        std::getline(std::cin, input);
 
         if (input == "EXIT") {
             std::cout << "Thanks for using the PhoneBook!\n"

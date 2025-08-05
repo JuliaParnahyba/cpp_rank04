@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 22:51:18 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/04 23:55:57 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/05 01:09:59 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,18 @@
 std::string fillContactField(const std::string &prompt, bool isPhone)
 {
     std::string value;
-    while (true)
-    {
+    while (true) {
         std::cout << prompt << "\n–→ ";
         std::getline(std::cin, value);
 
-        if (value == "CANCEL")
+        if (value == "CANCEL" || value == "cancel")
             return value;
-
-        if (value.empty())
-        {
+        if (value.empty()) {
             std::cout << "⚠️ This field cannot be empty.\n";
             continue;
         }
-        if (isPhone && !isPhoneNumberValid(value))
-        {
-            std::cout << "❌ Phone number must be numeric and up to 11 digits.\n";
+        if (isPhone && !isPhoneNumberValid(value)) {
+            std::cout << "❌ Phone number must be numeric and exactly 11 digits.\n";
             continue;
         }
         break;
@@ -38,11 +34,56 @@ std::string fillContactField(const std::string &prompt, bool isPhone)
     return value;
 }
 
+void    editContactField(Contact &contact)
+{
+    std::string choice;
+    
+    std::cout << "\nWhich field do you want to change?\n";
+    std::cout << "1 - First name\n";
+    std::cout << "2 - Last name\n";
+    std::cout << "3 - Nickname\n";
+    std::cout << "4 - Phone number\n";
+    std::cout << "5 - Darkest secret\n–→ ";
+
+    std::getline(std::cin, choice);
+    if (choice == "1")
+        contact.setField("_firstName", fillContactField("Enter the first name:"));
+    else if (choice == "2")
+        contact.setField("_lastName", fillContactField("Enter the last name:"));
+    else if (choice == "3")
+        contact.setField("_nickname", fillContactField("Enter the nickname:"));
+    else if (choice == "4")
+        contact.setField("_phoneNumber", fillContactField("Enter the phone number:", true));
+    else if (choice == "5")
+        contact.setField("_darkSecret", fillContactField("Enter the darkest secret:"));
+    else
+        std::cout << "❌ Invalid option.\n";
+}
+
+bool    confirmAddSaveContact(Contact &contact, PhoneBook &phonebook)
+{
+    while (true) {
+        std::cout << "\n📋 Review Contact Information:\n";
+        contact.displayDetails();
+
+        std::string confirm;
+        std::cout << "\nDo you want to save this contact? (y/n)\n–→ ";
+        std::getline(std::cin, confirm);
+        if (confirm == "y" || confirm == "Y") {
+            phonebook.addContact(contact);
+            std::cout << "✅ Contact added to the phonebook!\n";
+            return true;
+        }
+        else if (confirm == "n" || confirm == "N")
+            editContactField(contact);
+        else
+            std::cout << "❌ Invalid input. Please type 'y' or 'n'.\n";
+    }
+}
+
 void handleAddContact(PhoneBook &phonebook)
 {
     Contact contact;
-
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::string firstName = fillContactField("Enter the first name:");
     if (firstName == "CANCEL") return;
@@ -64,18 +105,5 @@ void handleAddContact(PhoneBook &phonebook)
     if (darkSecret == "CANCEL") return;
     contact.setField("_darkSecret", darkSecret);
 
-    std::cout << "\n📋 Review Contact Information:\n";
-    contact.displayDetails();
-
-    std::string confirm;
-    std::cout << "\nDo you want to save this contact? (y/n)\n–→ ";
-    std::getline(std::cin, confirm);
-    if (confirm != "y" && confirm != "Y")
-    {
-        std::cout << "❌ Contact not saved.\n";
-        return;
-    }
-
-    phonebook.addContact(contact);
-    std::cout << "✅ Contact added to the phonebook!\n";
+    confirmAddSaveContact(contact, phonebook);
 }
