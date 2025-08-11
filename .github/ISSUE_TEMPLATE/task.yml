@@ -1,6 +1,6 @@
 name: Exercise Task
 description: A detailed task for a specific exercise step
-title: "[Module00 exXX] <Task description>"
+title: "[ModuleXX exXX] [TXX] <Task description>"
 labels: ["task", "module00"]
 assignees: []
 
