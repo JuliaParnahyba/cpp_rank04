@@ -8,9 +8,9 @@ body:
   - type: input
     id: module
     attributes:
-      label: Module Number
-      description: For example, 00, 01
-      placeholder: "00"
+      label: Module Name
+      description: The description of each Module
+      placeholder: "Namespaces, classes, member functions, (...)"
     validations:
       required: true
 
