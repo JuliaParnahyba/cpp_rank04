@@ -4,6 +4,7 @@
 *.a
 *.exe
 phonebook
+zombie
 
 #Configs and metadata
 .vscode/
