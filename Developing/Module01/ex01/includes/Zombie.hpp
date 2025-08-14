@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:18:48 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/12 21:21:23 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:36:40 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ public:
 };
 
 /* --------- AUX. FUNCTIONS --------- */
-Zombie  *newZombie(const std::string &name);    // heap factory; caller owns and must delete
-void    randomChump(const std::string &name);   // stack factory; creates, announces, auto-destroys
+ Zombie* zombieHorde( int N, std::string name );    //
 
 #endif  // end include guard
 // ZOMBIE_HPP

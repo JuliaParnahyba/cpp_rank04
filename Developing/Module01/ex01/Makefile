@@ -6,12 +6,12 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 18:22:54 by jparnahy          #+#    #+#              #
-#    Updated: 2025/08/12 20:33:46 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/08/14 19:33:00 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #executable name
-NAME = zombie
+NAME = zombieHorde
 
 #files
 SRC_DIR = src
