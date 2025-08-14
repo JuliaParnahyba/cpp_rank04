@@ -6,14 +6,16 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:22:29 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/14 19:34:54 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:59:42 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int main() {
-    std::cout << "its runing" << std::endl;
+    Zombie z;               // default
+    z.setName("Tester");    // pós new[] será parecido
+    z.announce();           // "Tester: BraiiiiiiinnnzzzZ..."
     
     return 0;
 }
