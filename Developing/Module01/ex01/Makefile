@@ -6,7 +6,7 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 18:22:54 by jparnahy          #+#    #+#              #
-#    Updated: 2025/08/14 21:39:52 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/08/14 22:00:35 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,11 +123,28 @@ hell: re
 	valgrind --leak-check=full --show-leak-kinds=all \
 		--track-origins=yes --track-fds=yes ./$(NAME)
 
-#debug destructor log
+#main testers
+test:
+	@$(MAKE) -s --no-print-directory re DEBUG_FLG=-DRUN_TESTS
+	@echo "$(CYAN)$(BUG) Main tests logs ON...$(RESET)"
+	@echo
+
+#main testers + debug log and valgrind
+debug_tests:
+	@$(MAKE) -s --no-print-directory re DEBUG_FLG="-DRUN_TESTS -DDEBUG_MODE"
+	@echo "$(CYAN)$(BUG) Main tests logs ON with Valgrind...$(RESET)"
+	@echo
+	@echo "$(RED)🔍 Running Valgrind...$(RESET)"
+	valgrind --leak-check=full --show-leak-kinds=all \
+		--track-origins=yes --track-fds=yes ./$(NAME)
+	@echo
+
+#debug dest. log
 debug: 
 	@$(MAKE) re DEBUG_FLG=-DDEBUG_MODE --no-print-directory
 	@echo "$(CYAN)$(BUG) Debug mode logs ON...$(RESET)"
 	@echo
+
 
 #to avoid conflits with files named clean, fclean and re
 .PHONY: all clean fclean re hell debug
