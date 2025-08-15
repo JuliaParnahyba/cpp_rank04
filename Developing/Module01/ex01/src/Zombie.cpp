@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:23:40 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/14 19:57:35 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/14 21:23:22 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ Zombie::Zombie(const std::string &name) : _name(name) { /*body clean*/ }
 
 // Destructor
 Zombie::~Zombie() {
+#ifdef DEBUG_MODE
     std::cout << this->_name << " is destroyed" << std::endl;
+#endif
 }
 
 void    Zombie::announce() const {

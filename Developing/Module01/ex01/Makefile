@@ -6,7 +6,7 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 18:22:54 by jparnahy          #+#    #+#              #
-#    Updated: 2025/08/14 19:33:00 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/08/14 21:39:52 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ OBJ = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 
 #compiler an flags
 CPP = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
+DEBUG_FLG ?=
+FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR) $(DEBUG_FLG)
 
 #tools
 #clear the implicit rules
@@ -60,6 +61,7 @@ FLGS = 🏳️
 GEAR = ⚙️
 BOX = 📦
 NOR = 🔎
+BUG = ☢️
 
 # Barra de progresso
 PROGRESS_BAR_LENGTH = 50
@@ -121,5 +123,11 @@ hell: re
 	valgrind --leak-check=full --show-leak-kinds=all \
 		--track-origins=yes --track-fds=yes ./$(NAME)
 
+#debug destructor log
+debug: 
+	@$(MAKE) re DEBUG_FLG=-DDEBUG_MODE --no-print-directory
+	@echo "$(CYAN)$(BUG) Debug mode logs ON...$(RESET)"
+	@echo
+
 #to avoid conflits with files named clean, fclean and re
-.PHONY: all clean fclean re hell
+.PHONY: all clean fclean re hell debug
