@@ -6,7 +6,7 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 18:22:54 by jparnahy          #+#    #+#              #
-#    Updated: 2025/08/18 20:51:25 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/08/18 21:25:33 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,13 @@ OBJ = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 CPP = c++
 DEBUG_FLG ?=
 FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR) $(DEBUG_FLG)
+
+#quiet recursive make ("entering/leaving directory")
+MAKEFLAGS += --no-print-directory
+
+#Valgrind flags
+VALGRIND = valgrind --leak-check=full --show-leak-kinds=all \
+			--track-origins=yes --track-fds=yes
 
 #tools
 #clear the implicit rules
@@ -117,34 +124,33 @@ fclean: clean
 #rebuild
 re: fclean all
 
+#execute after build
+run: $(NAME)
+	@./$(NAME)
+
 #valgrind
 hell: re
 	@echo "$(RED)🔍 Running Valgrind...$(RESET)"
-	valgrind --leak-check=full --show-leak-kinds=all \
-		--track-origins=yes --track-fds=yes ./$(NAME)
+	@$(VALGRIND) ./$(NAME)
 
-#main testers
+#main test (#ifdef RUN_TESTS)
 test:
-	@$(MAKE) -s --no-print-directory re DEBUG_FLG=-DRUN_TESTS
-	@echo "$(CYAN)$(BUG) Main tests logs ON...$(RESET)"
+	@$(MAKE) re DEBUG_FLG=-DRUN_TESTS
+	@echo "$(CYAN)$(BUG) Tester main enabled (RUN_TESTS)...$(RESET)"
 	@echo
 
-#main testers + debug log and valgrind
-debug_tests:
-	@$(MAKE) -s --no-print-directory re DEBUG_FLG="-DRUN_TESTS -DDEBUG_MODE"
-	@echo "$(CYAN)$(BUG) Main tests logs ON with Valgrind...$(RESET)"
+#main test with valgrind
+test_hell:
+	@$(MAKE) -s re DEBUG_FLG=-DRUN_TESTS
+	@echo "$(CYAN)$(BUG) Tester main enabled (RUN_TESTS) under Valgrind...$(RESET)"
 	@echo
 	@echo "$(RED)🔍 Running Valgrind...$(RESET)"
-	valgrind --leak-check=full --show-leak-kinds=all \
-		--track-origins=yes --track-fds=yes ./$(NAME)
+	@$(VALGRIND) ./$(NAME)
 	@echo
 
-#debug dest. log
-debug: 
-	@$(MAKE) re DEBUG_FLG=-DDEBUG_MODE --no-print-directory
-	@echo "$(CYAN)$(BUG) Debug mode logs ON...$(RESET)"
-	@echo
-
+# optional aliases (keep previous naming style)
+tests: test
+tests_hell: test_hell
 
 #to avoid conflits with files named clean, fclean and re
-.PHONY: all clean fclean re hell debug
+.PHONY: all clean fclean re hell test test_hell debug
