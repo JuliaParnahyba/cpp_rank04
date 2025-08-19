@@ -6,7 +6,7 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 18:22:54 by jparnahy          #+#    #+#              #
-#    Updated: 2025/08/18 21:25:33 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/08/18 21:48:33 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@
 NAME = hi_this_is_brain
 
 #files
-SRC_DIR = src
-INC_DIR = includes
+SRC_DIR = .
 OBJ_DIR = obj
 
 #source and object files
@@ -25,7 +24,7 @@ OBJ = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 #compiler an flags
 CPP = c++
 DEBUG_FLG ?=
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR) $(DEBUG_FLG)
+FLAGS = -Wall -Wextra -Werror -std=c++98 $(DEBUG_FLG)
 
 #quiet recursive make ("entering/leaving directory")
 MAKEFLAGS += --no-print-directory
@@ -121,6 +120,17 @@ fclean: clean
 	@echo "$(YELLOW)  $(GEAR) Executable removed.$(RESET)"
 	@echo
 
+#executable cleaninh
+eclean: 
+	@echo "$(RED)$(CROSS) Removing executable... $(RESET)"
+	@for i in $$(seq $(PROGRESS_BAR_LENGTH_CLEAN)); do \
+		printf "$(RED_MARK)=$(RESET)"; \
+		sleep 0.01; \
+	done; \
+	$(RM) $(NAME)
+	@echo "$(YELLOW)  $(GEAR) Executable removed.$(RESET)"
+	@echo
+
 #rebuild
 re: fclean all
 
@@ -153,4 +163,4 @@ tests: test
 tests_hell: test_hell
 
 #to avoid conflits with files named clean, fclean and re
-.PHONY: all clean fclean re hell test test_hell debug
+.PHONY: all clean fclean eclean re run hell test test_hell tests tests_hell
