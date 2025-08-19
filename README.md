@@ -64,11 +64,11 @@ CPP/
 
 | Módulo    | Conceitos Abordados                                                            | Status         |
 | --------- | ------------------------------------------------------------------------------ | -------------- |
-| Module 00 | Namespaces, classes, métodos, `const`, `static`, I/O, listas de inicialização  | ✅ Em andamento |
-| Module 01 | Alocação dinâmica, referências, ponteiros para membros, `switch`               | ⏳ Em progresso |
-| Module 02 | Sobrecarga de operadores, Canonical Form, fixed-point, comparação e aritmética | ⏳ Em progresso |
-| Module 03 | Herança, construtores/destrutores, múltipla herança, especializações de classe | ⏳ Em progresso |
-| Module 04 | Polimorfismo, classes abstratas, interfaces e deep copies                      | ⏳ Em progresso |
+| Module 00 | Namespaces, classes, métodos, `const`, `static`, I/O, listas de inicialização  | ✅ Concluído |
+| Module 01 | Alocação dinâmica, referências, ponteiros para membros, `switch`               | ⚙️ Em progresso |
+| Module 02 | Sobrecarga de operadores, Canonical Form, fixed-point, comparação e aritmética | ⏳ Aguardando |
+| Module 03 | Herança, construtores/destrutores, múltipla herança, especializações de classe | ⏳ Aguardando |
+| Module 04 | Polimorfismo, classes abstratas, interfaces e deep copies                      | ⏳ Aguardando |
 
 > ⚠️ *STL e containers como `vector` são permitidos apenas a partir do Módulo 08.*
 
