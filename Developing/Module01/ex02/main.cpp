@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 20:49:24 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/18 22:21:27 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/18 22:25:55 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /**
  *  Goal                                                               
  *    Print:                                                           
- *      (A) the memory addresses of:                                   
+ *      (A) the memory addresses of:                                    
  *          - the string variable                                      
  *          - the string pointer                                       
  *          - the string reference                                     
