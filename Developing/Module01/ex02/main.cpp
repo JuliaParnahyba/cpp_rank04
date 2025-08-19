@@ -6,12 +6,12 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 20:49:24 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/18 21:53:29 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/18 22:06:40 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include <iostream> // std::cout
+#include <string>   // std::string
 
 /* -------------------------------------------------------------------------- */
 /*  Goal                                                                      */
@@ -24,15 +24,29 @@
 /*          - the variable                                                    */
 /*          - the pointer dereference                                         */
 /*          - the reference                                                   */
+/*                                                                            */
+/*  Required output (deterministic order)                                     */
+/*    Addresses:                                                              */
+/*      The memory address of the string variable is: <address_of_s>          */
+/*      The memory address held by stringPTR is: <address_in_stringPTR>       */
+/*      The memory address held by stringREF is: <address_of_s_via_ref>       */
+/*                                                                            */
+/*    Values:                                                                 */
+/*      The value of the string variable is: HI THIS IS BRAIN                 */
+/*      The value pointed to by stringPTR is: HI THIS IS BRAIN                */
+/*      The value referred to by stringREF is: HI THIS IS BRAIN               */
 /* -------------------------------------------------------------------------- */
 
 int main() {
-    std::cout << "run..." << std::endl;
+    // ------------------- Declarations only (no output) ------------------- //  
+    std::string s = "HI THIS IS BRAIN"; // an object: owns the character data
+    std::string *stringPTR = &s;        // pointer: stores the ADDRESS of 's' (can be reseated)
+    std::string &stringREF = s;         // reference: an ALIAS to 's' (must bind at init; cannot reseat)
 
-    std::string s = "HI THIS IS BRAIN";
-    std::string *stringPTR = &s;
-    std::string &stringREF = s;
-
+    // ---------------- Print addresses (deterministic order) -------------- //
+    std::cout << "The memory address of the string variable is: " << &s << std::endl;
+    std::cout << "The memory address held by stringPTR is: " << stringPTR << std::endl;
+    std::cout << "The memory address held by stringREF is: " << &stringREF << std::endl;
     
 
     return 0;
