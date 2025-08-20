@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 21:46:19 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/19 21:56:52 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/19 22:12:54 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@
 /* --------- CLASS --------- */
 class   HumanB {
     private:
-        
-    public: 
-        
+        std::string _name;
+        Weapon  *_weapon;
+
+    public:
+        explicit HumanB(const std::string &name);
+        void setWeapon(Weapon &weapon);
+        void attack() const;
 };
 
 /* --------- AUX. FUNCTIONS --------- */
