@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 21:46:19 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/19 22:12:54 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/20 22:16:57 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class   HumanB {
 
     public:
         explicit HumanB(const std::string &name);
-        void setWeapon(Weapon &weapon);
+        void setWeapon(Weapon &newWeapon);
         void attack() const;
 };
 
