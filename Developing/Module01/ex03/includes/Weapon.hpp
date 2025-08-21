@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 21:44:56 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/20 22:04:27 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/20 23:11:29 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ class   Weapon {
         void setType(const std::string &newType); 
         
 };
-
-/* --------- AUX. FUNCTIONS --------- */
-
 
 #endif  // WEAPON_HPP
 // end include guard

@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 21:46:12 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/19 22:16:12 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/20 23:11:39 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ class   HumanA {
         void attack() const;
         
 };
-
-/* --------- AUX. FUNCTIONS --------- */
-
 
 #endif  // HUMANA_HPP
 // end include guard

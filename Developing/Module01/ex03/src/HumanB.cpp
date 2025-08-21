@@ -6,12 +6,12 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 21:47:01 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/20 22:34:05 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/20 23:18:30 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream> // std::cout, std::endl
 #include "HumanB.hpp"
+#include <iostream> // std::cout, std::endl
 
 HumanB::HumanB(const std::string &name)
     : _name(name), _weapon(NULL) { /* body clean */ }
@@ -26,4 +26,3 @@ void HumanB::attack() const {
             << this->_weapon->getType()
             << std::endl;
 }
-

@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 21:46:19 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/20 22:16:57 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/20 23:11:58 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ class   HumanB {
         void setWeapon(Weapon &newWeapon);
         void attack() const;
 };
-
-/* --------- AUX. FUNCTIONS --------- */
-
 
 #endif  // HUMANB_HPP
 // end include guard
