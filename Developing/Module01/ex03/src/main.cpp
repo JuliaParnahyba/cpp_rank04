@@ -6,12 +6,14 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 21:43:53 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/20 21:53:10 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/20 22:04:38 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream> // std::cout, std::endl
 #include "Weapon.hpp"
 #include "HumanA.hpp"
+
 
 int main() {
     std::cout << "Its run...\n" << std::endl;

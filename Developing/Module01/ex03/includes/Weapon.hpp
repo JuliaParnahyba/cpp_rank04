@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 21:44:56 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/20 21:07:38 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/20 22:04:27 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 /* --------- STANDARD LIBRARIES --------- */
 #include <string>   // std::string
-#include <iostream> // std::cout, std::endl
 
 /* --------- CLASS --------- */
 class   Weapon {
