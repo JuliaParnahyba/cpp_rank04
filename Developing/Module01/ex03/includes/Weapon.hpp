@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 21:44:56 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/19 22:12:49 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/20 21:07:38 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class   Weapon {
     public:
         explicit Weapon(const std::string &type);
         const std::string &getType() const;
-        void setType(const std::string &type); 
+        void setType(const std::string &newType); 
         
 };
 
