@@ -6,7 +6,7 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/25 18:45:42 by jparnahy          #+#    #+#              #
-#    Updated: 2025/08/25 19:32:09 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/08/25 22:25:54 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = sed_is_for_losers
 
 #directory files
 SRC_DIR = .
+INC_DIR = .
 OBJ_DIR = obj
 
 #source and object files
@@ -24,7 +25,7 @@ OBJ = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 #compiler and flags
 CPP = c++
 DEBUG_FLG ?=
-FLAGS = -Wall -Wextra -Werror -std=c++98 $(DEBUG_FLG)
+FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR) $(DEBUG_FLG)
 
 #quiet recursive make ("entering/leaving directory")
 MAKEFLAGS += --no-print-directory
