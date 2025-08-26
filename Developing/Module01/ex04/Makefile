@@ -6,12 +6,12 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/25 18:45:42 by jparnahy          #+#    #+#              #
-#    Updated: 2025/08/25 19:04:55 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/08/25 19:32:09 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #executable name
-NAME = sad_is_for_losers
+NAME = sed_is_for_losers
 
 #directory files
 SRC_DIR = .
