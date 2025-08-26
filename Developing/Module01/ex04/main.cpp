@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 18:52:35 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/25 21:20:40 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/25 21:23:42 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,29 @@ std::string empty_checker(const std::string &in, const std::string &s1) {
     return "";
 }
 
-bool    process_file(const std::string &input) {
+std::string replace_all(const std::string &src, const std::string &from, const std::string &to) {
+    std::string out;
+
+    if (from == to)
+        return src;
+
+    out.reserve(src.size());
+    std::string::size_type pos = 0;
+    std::string::size_type found = 0;
+    while (true) {
+        found = src.find(from, pos);
+        if (found == std::string::npos) {
+            out.append(src, pos, src.size() - pos);
+            break;
+        }
+        out.append(src, pos, found - pos);
+        out.append(to);
+        pos = found + from.size();
+    }
+    return out;
+}
+
+bool    process_file(const std::string &input, const std::string &s1, const std::string &s2) {
     std::ifstream   file_in(input.c_str(), std::ios::in);
     if (!file_in) {
         std::cerr << "Error: could nor open input file: "
@@ -48,7 +70,7 @@ bool    process_file(const std::string &input) {
         if (!first) 
             file_out << '\n';
         first = false;
-        file_out << line;
+        file_out << replace_all(line, s1, s2);
     }
         
     if (file_in.bad()) {
@@ -78,7 +100,7 @@ int main(int argc, char **argv) {
     std::cout << "The s1 is: " << s1 << std::endl;
     std::cout << "The s2 is: " << s2 << std::endl;
     
-    if (!process_file(in))
+    if (!process_file(in, s1, s2))
         return 1;  
     return 0;
 }
