@@ -6,7 +6,7 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/25 18:45:42 by jparnahy          #+#    #+#              #
-#    Updated: 2025/08/25 22:25:54 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/08/25 22:31:13 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 NAME = sed_is_for_losers
 
 #directory files
-SRC_DIR = .
-INC_DIR = .
+SRC_DIR = src
+INC_DIR = includes
 OBJ_DIR = obj
 
 #source and object files
