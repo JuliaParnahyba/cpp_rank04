@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 18:52:35 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/25 19:06:32 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/08/25 21:15:23 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@ void    print_usage() {
             << std::endl;
 }
 
+std::string empty_checker(const std::string &in, const std::string &s1) {
+    if (in.empty())
+        return "<filename>";
+    else if (s1.empty())
+        return "<s1>";
+    return "";
+}
+
 int main(int argc, char **argv) {
     if (argc != 4) {
         print_usage();
@@ -27,9 +35,10 @@ int main(int argc, char **argv) {
     const   std::string in = argv[1];
     const   std::string s1 = argv[2];
     const   std::string s2 = argv[3];
+    const   std::string res = empty_checker(in, s1);
 
-    if (s1.empty()) {
-        std::cout << "Error: s1 must be non-empty." << std::endl;
+    if (!res.empty()) {
+        std::cout << "Error: " << res << " must be non-empty." << std::endl;
         return 1;
     }
 
