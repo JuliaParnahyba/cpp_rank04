@@ -17,7 +17,7 @@ class   Printer {
 int main () {
     Printer printer;
 
-    // decla o tipo correto: void (Classe::*)(void)
+    // declara o tipo correto: void (Classe::*)(void)
     // retorno (Classe::*função)(argumento) = referênciaClasse::funçãoDaClasse
     void (Printer::*fn)(void) = &Printer::sayHello;
 
