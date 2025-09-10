@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 20:47:27 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/01 21:04:14 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/09 21:19:41 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,25 @@ void    Harl::error(void) {
 
 void    Harl::complain(std::string level) {
     //Dispatch table
-    std::string levelS[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    const std::string levels[4] = {
+        "DEBUG",
+        "INFO",
+        "WARNING",
+        "ERROR"
+    };
+
+    void (Harl::*fn[4])(void) = { 
+        &Harl::degub,
+        &Harl::info,
+        &Harl::warning,
+        &Harl::error
+    };
+
+    for (int i = 0; i < 4; i++){
+        if (level == levels[i]) {
+            (this->*fn[i])();
+            return;
+        }
+    }
 
 }
