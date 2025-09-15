@@ -5,23 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/11 21:59:30 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/14 20:54:11 by jparnahy         ###   ########.fr       */
+/*   Created: 2025/09/14 20:53:56 by jparnahy          #+#    #+#             */
+/*   Updated: 2025/09/14 22:10:39 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 int main() {
-    Fixed a;    // Default constructor
-    Fixed b(a); // Copy constructor
-    Fixed c;    // Default constructor for copy assignment
+    Fixed a;
+    Fixed const b(10); 
+    Fixed const c(42.42f);
+    Fixed d(b);
 
-    c = b;      // Copy assignment
+    a = Fixed(1234.4321f);
 
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    
+    std::cout << "a is " << a << std::endl;
+    std::cout << "b is " << b << std::endl;
+    std::cout << "c is " << c << std::endl;
+    std::cout << "d is " << d << std::endl;
+
+    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+
     return 0;
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/11 21:41:49 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/14 20:53:27 by jparnahy         ###   ########.fr       */
+/*   Created: 2025/09/14 20:53:08 by jparnahy          #+#    #+#             */
+/*   Updated: 2025/09/14 21:53:44 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 /* --------- STANDARD LIBRARIES --------- */
 #include <iostream>
+#include <cmath>
 
 class   Fixed {
     private:
@@ -25,13 +26,22 @@ class   Fixed {
     
     public:
         Fixed();                                // default constructor
+
         Fixed(const Fixed &other);              // copy constructor
         Fixed &operator=(const Fixed &other);   // copy assignment
+
+        Fixed(const int nbr);                   // constructor from int
+        Fixed(const float nbr);                 // constructor from float
+
         ~Fixed();                               // destructor
 
-        // API
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
+        int getRawBits(void) const;             // getter
+        void setRawBits(int const raw);         // setter
+        float toFloat(void) const;              // to float
+        int toInt(void) const;                  // to int
+
+        /* --------- FRIEND FUNCTION OFF CLASS --------- */
+        friend std::ostream &operator<<(std::ostream &out, Fixed const &objt);
 };
 
 #endif // FIXED_HPP
