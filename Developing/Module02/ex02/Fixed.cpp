@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:46:46 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/15 22:28:58 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/15 22:26:20 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,32 @@ float Fixed::toFloat(void) const {
     return this->_raw / factor;
 }
 
-std::ostream &operator<<(std::ostream &out, Fixed const &objt) {
-    return out << objt.toFloat();
+// Comparison operators
+bool Fixed::operator>(Fixed const &rhs) const {
+    return this->_raw > rhs._raw;
+}
+
+bool Fixed::operator<(Fixed const &rhs) const {
+    return this->_raw < rhs._raw;
+}
+
+bool Fixed::operator>=(Fixed const &rhs) const {
+    return this->_raw >= rhs._raw;
+}
+
+bool Fixed::operator<=(Fixed const &rhs) const {
+    return this->_raw <= rhs._raw;
+}
+
+bool Fixed::operator==(Fixed const &rhs) const {
+    return this->_raw == rhs._raw;
+}
+
+bool Fixed::operator!=(Fixed const &rhs) const {
+    return this->_raw != rhs._raw;
+}
+
+// Output stream operator
+std::ostream &operator<<(std::ostream &out, Fixed const &rhs) {
+    return out << rhs.toFloat();
 }

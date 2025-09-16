@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:46:58 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/15 11:56:10 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/15 22:41:12 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,34 @@ class   Fixed {
         Fixed &operator=(const Fixed &other);   // copy assignment
         
         Fixed(const int nbr);                   // int constructor
-        Fixed(const float nbr);                 // float constrictor
+        Fixed(const float nbr);                 // float constructor
 
         ~Fixed();                               // destructor
         
         int     getRawBits(void) const;         // getter
-        void    setRawBits(void);               // setter
+        void    setRawBits(int const raw);      // setter
         float   toFloat(void) const;            // convert to float
         int     toInt(void) const;              // convert to int
         
+
+        /* --------- COMPARISON OPERATORS --------- */
+        bool    operator>(Fixed const &rhs) const;
+        bool    operator<(Fixed const &rhs) const;
+        bool    operator>=(Fixed const &rhs) const;
+        bool    operator<=(Fixed const &rhs) const;
+        bool    operator==(Fixed const &rhs) const;
+        bool    operator!=(Fixed const &rhs) const;
+
+        /* --------- ARITHMETIC OPERATORS --------- */
+
+
+        /* --------- INCREMENT/DECREMENT OPERATORS --------- */
+
+
         /* --------- FRIEND FUNCTION OFF CLASS --------- */
         // overload operator for cout the objetc. Will call toInt()
-        friend std::ostream &operator<<(std::ostream &out, Fixed const &objt);
-}
+        friend std::ostream &operator<<(std::ostream &out, Fixed const &rhs);
+};
 
 #endif // FIXED_HPP
 // end include guard
