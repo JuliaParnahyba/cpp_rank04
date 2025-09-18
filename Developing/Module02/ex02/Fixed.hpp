@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:46:58 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/15 22:41:12 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:39:26 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ class   Fixed {
         bool    operator!=(Fixed const &rhs) const;
 
         /* --------- ARITHMETIC OPERATORS --------- */
-
+        Fixed   operator+(Fixed const &rhs) const;
+        Fixed   operator-(Fixed const &rhs) const;
+        Fixed   operator*(Fixed const &rhs) const;
+        Fixed   operator/(Fixed const &rhs) const;
 
         /* --------- INCREMENT/DECREMENT OPERATORS --------- */
 

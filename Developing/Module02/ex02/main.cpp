@@ -6,59 +6,59 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 22:25:08 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/15 22:41:03 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/18 00:43:16 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <iostream>
 #include <iomanip>
+#include <exception>
 
 int main() {
     std::cout << "Its run\n" << std::endl;
 
-    std::cout << std::boolalpha;
+    std::cout << std::boolalpha << std::fixed << std::setprecision(6);
 
-    Fixed a;            // 0.0
-    Fixed b(1);         // 1.0 (int ctor)
-    Fixed c(1.5f);      // 1.5 (float ctor)
-    Fixed d(-0.5f);     // -0.5
-    Fixed e = c;        // copy ctor
-    Fixed f;            // default ctor
-
-    f = d;              // copy assignment 
+    Fixed a(1.5f), b(2.0f), z(0.0f);
+    Fixed m(-0.5f), n(3.0f);
+    Fixed p(-3.0f), q(2.0f);
 
     std::cout << "\n=== Valores ===\n";
-    std::cout << "a = " << a << "\n";
-    std::cout << "b = " << b << "\n";
-    std::cout << "c = " << c << "\n";
-    std::cout << "d = " << d << "\n";
-    std::cout << "e = " << e << " (deve ser igual a c)\n";
-    std::cout << "f = " << f << " (deve ser igual a d)\n";
+    std::cout << "a = " << a << "  b = " << b << "  z = " << z << "\n";
+    std::cout << "m = " << m << "  n = " << n << "  p = " << p << "  q = " << q << "\n";
 
-    std::cout << "\n=== Testes básicos ===\n";
-    std::cout << "a < b  ? " << (a < b)  << "  (esperado: true)\n";
-    std::cout << "b > a  ? " << (b > a)  << "  (esperado: true)\n";
-    std::cout << "a == a ? " << (a == a) << "  (esperado: true)\n";
-    std::cout << "a != b ? " << (a != b) << "  (esperado: true)\n";
+    std::cout << "\n=== Soma / Subtracao ===\n";
+    std::cout << "a + b = " << (a + b) << "  (esperado: 3.500000)\n";
+    std::cout << "b - a = " << (b - a) << "  (esperado: 0.500000)\n";
+    std::cout << "a - b = " << (a - b) << "  (esperado: -0.500000)\n";
 
-    std::cout << "\n=== Igualdade ===\n";
-    std::cout << "c == e ? " << (c == e) << "  (esperado: true)\n";
-    std::cout << "c != e ? " << (c != e) << "  (esperado: false)\n";
-    std::cout << "d == f ? " << (d == f) << "  (esperado: true)\n";
-    std::cout << "d != f ? " << (d != f) << "  (esperado: false)\n";
+    std::cout << "\n=== Multiplicacao ===\n";
+    std::cout << "a * b = " << (a * b) << "  (esperado: 3.000000)\n";
+    std::cout << "m * n = " << (m * n) << "  (esperado: -1.500000)\n";
+    std::cout << "b * z = " << (b * z) << "  (esperado: 0.000000)\n";
 
-    std::cout << "\n=== Limites com negativos ===\n";
-    std::cout << "d < a  ? " << (d < a)  << "  (esperado: true)\n";
-    std::cout << "d <= a ? " << (d <= a) << "  (esperado: true)\n";
-    std::cout << "a >= d ? " << (a >= d) << "  (esperado: true)\n";
-    std::cout << "b <= d ? " << (b <= d) << "  (esperado: false)\n";
-    std::cout << "e <= f ? " << (e <= f) << "  (esperado: false)\n";
+    std::cout << "\n=== Divisao ===\n";
+    std::cout << "a / b = " << (a / b) << "  (esperado: 0.750000)\n";
+    std::cout << "b / a = " << (b / a) << "  (≈ 1.333333)\n";
+    std::cout << "p / q = " << (p / q) << "  (esperado: -1.500000)\n";
+    std::cout << "z / b = " << (z / b) << "  (esperado: 0.000000)\n";
 
-    std::cout << "\n=== Simetria e coerencia ===\n";
-    std::cout << "(a < b) && (b > a) ? " << ((a < b) && (b > a)) << "  (true)\n";
-    std::cout << "(c <= e) && (c >= e)? " << ((c <= e) && (c >= e)) << "  (true)\n";
+    std::cout << "\n=== Identidades ===\n";
+    Fixed one(1), half(0.5f);
+    std::cout << "a * 1 = " << (a * one) << "  (esperado: " << a << ")\n";
+    std::cout << "a / 1 = " << (a / one) << "  (esperado: " << a << ")\n";
+    std::cout << "a + 0 = " << (a + z) << "  (esperado: " << a << ")\n";
+    std::cout << "a - 0 = " << (a - z) << "  (esperado: " << a << ")\n";
 
-    std::cout << "\n[OK] Comparacoes testadas.\n";
+    std::cout << "\n=== Divisao por zero (excecao) ===\n";
+    try {
+        std::cout << "a / 0 = ";
+        std::cout << (a / z) << "\n"; // deve lançar
+    } catch (const std::exception& e) {
+        std::cout << "excecao capturada: " << e.what() << "\n";
+    }
 
+    std::cout << "\n[OK] Aritmetica testada.\n";
     return 0;
 }

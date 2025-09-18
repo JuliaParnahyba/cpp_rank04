@@ -6,11 +6,12 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:46:46 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/15 22:26:20 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/18 00:41:53 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <stdexcept>
 
 // Define the static member
 const int Fixed::_fractionalBits = 8;
@@ -94,6 +95,42 @@ bool Fixed::operator==(Fixed const &rhs) const {
 
 bool Fixed::operator!=(Fixed const &rhs) const {
     return this->_raw != rhs._raw;
+}
+
+// Arithmetic operators
+Fixed Fixed::operator+(Fixed const &rhs) const {
+    Fixed sum;
+    sum.setRawBits(this->_raw + rhs._raw);
+    return sum;
+}
+
+Fixed Fixed::operator-(Fixed const &rhs) const {
+    Fixed diff;
+    diff.setRawBits(this->_raw - rhs._raw);
+    return diff;
+}
+
+Fixed Fixed::operator*(Fixed const &rhs) const {
+    const int scale = (1 << Fixed::_fractionalBits);
+    long long temp = static_cast<long long>(this->_raw) * static_cast<long long>(rhs._raw);
+    
+    Fixed prod;
+    prod.setRawBits(static_cast<int>(temp) / scale);
+    return prod;    
+}
+
+Fixed Fixed::operator/(Fixed const &rhs) const {
+    const int scale = (1 << Fixed::_fractionalBits);
+    
+    if (rhs._raw == 0)
+        throw std::runtime_error("division by zero");
+    
+    long long num = static_cast<long long>(this->_raw) * scale; 
+    long long den = static_cast<long long>(rhs._raw);
+    
+    Fixed quo;
+    quo.setRawBits(static_cast<int>(num / den));
+    return quo;
 }
 
 // Output stream operator
