@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:46:46 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/18 00:41:53 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/17 22:24:02 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,32 @@ Fixed Fixed::operator/(Fixed const &rhs) const {
     quo.setRawBits(static_cast<int>(num / den));
     return quo;
 }
+
+// Increment and decrement operators
+// prefix ++a and --a
+Fixed &Fixed::operator++(void) {
+    ++this->_raw;
+    return *this;
+}
+
+Fixed &Fixed::operator--(void) {
+    --this->_raw;
+    return *this;
+}
+
+// postfix a++ and a--
+Fixed Fixed::operator++(int) {
+    Fixed temp(*this);
+    ++this->_raw;
+    return temp;
+}
+
+Fixed Fixed::operator--(int) {
+    Fixed temp(*this);
+    --this->_raw;
+    return temp;
+}
+
 
 // Output stream operator
 std::ostream &operator<<(std::ostream &out, Fixed const &rhs) {

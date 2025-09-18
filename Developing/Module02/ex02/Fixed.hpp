@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:46:58 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/17 16:39:26 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/17 22:09:13 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ class   Fixed {
         Fixed   operator/(Fixed const &rhs) const;
 
         /* --------- INCREMENT/DECREMENT OPERATORS --------- */
-
+        Fixed   &operator++(void);  // prefix increment: ++a
+        Fixed   &operator--(void);  // prefix decrement --a
+        Fixed   operator++(int);    // postfix increment: a++
+        Fixed   operator--(int);    // postfix decrement: a--
 
         /* --------- FRIEND FUNCTION OFF CLASS --------- */
         // overload operator for cout the objetc. Will call toInt()
