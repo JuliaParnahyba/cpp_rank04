@@ -3,7 +3,11 @@
 *.out
 *.a
 *.exe
+
+## Module00
 phonebook
+
+## Module01
 zombie
 zombieHorde
 hi_this_is_brain
@@ -11,6 +15,13 @@ weapon_demo
 sed_is_for_losers
 harl
 harlFilter
+
+## Module02
+fixed
+
+## Module03
+
+## Module04
 
 #Configs and metadata
 .vscode/
