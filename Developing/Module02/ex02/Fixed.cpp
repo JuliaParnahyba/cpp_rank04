@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:46:46 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/17 22:24:02 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/18 21:18:00 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,22 @@ Fixed Fixed::operator--(int) {
     return temp;
 }
 
+// Static overloads - min/max
+Fixed &Fixed::min(Fixed &lhs, Fixed &rhs) {
+    return (lhs < rhs) ? lhs : rhs;
+}
+
+Fixed const &Fixed::min(Fixed const &lhs, Fixed const &rhs) {
+    return (lhs < rhs) ? lhs : rhs;
+}
+
+Fixed &Fixed::max(Fixed &lhs, Fixed &rhs) {
+    return (lhs < rhs) ? rhs : lhs;
+}
+
+Fixed const &Fixed::max(Fixed const &lhs, Fixed const &rhs) {
+    return (lhs < rhs) ? rhs : lhs;
+}
 
 // Output stream operator
 std::ostream &operator<<(std::ostream &out, Fixed const &rhs) {
