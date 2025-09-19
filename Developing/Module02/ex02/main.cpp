@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 22:25:08 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/18 21:41:23 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/18 21:51:12 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main() {
 
     std::cout << b << std::endl;
 
-    std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << Fixed::max(a, b) << std::endl;
 
     return 0;
 }

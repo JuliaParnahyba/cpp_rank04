@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:46:46 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/18 21:36:33 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/18 21:53:04 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int Fixed::toInt(void) const {
 // Convert to float
 float Fixed::toFloat(void) const {
     const float factor = (1 << Fixed::_fractionalBits);
-    return this->_raw / factor;
+    return static_cast<float>(this->_raw) / factor;
 }
 
 // Comparison operators
