@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:46:46 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/09/18 21:18:00 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/18 21:36:33 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,48 +17,32 @@
 const int Fixed::_fractionalBits = 8;
 
 // Default constructor
-Fixed::Fixed() : _raw(0) {
-    std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed() : _raw(0) {}
 
 // Int constructor
-Fixed::Fixed(const int nbr) : _raw(nbr * (1 << Fixed::_fractionalBits)) {
-    std::cout << "Int constructor called" << std::endl;
-}
+Fixed::Fixed(const int nbr) : _raw(nbr * (1 << Fixed::_fractionalBits)) {}
 
 // Float constructor
-Fixed::Fixed(const float nbr) : _raw(roundf(nbr * (1 << Fixed::_fractionalBits))) {
-    std::cout << "Float constructor called" << std::endl;
-}
+Fixed::Fixed(const float nbr) : _raw(roundf(nbr * (1 << Fixed::_fractionalBits))) {}
 
 // Copy constructor
-Fixed::Fixed(const Fixed &other) : _raw(other._raw) {
-    std::cout << "Copy constructor called" << std::endl;
-}
+Fixed::Fixed(const Fixed &other) : _raw(other._raw) {}
 
 // Copy assignment
 Fixed &Fixed::operator=(const Fixed &other) {
-    std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
         this->_raw = other._raw;
     return *this;
 }
 
 // Destructor
-Fixed::~Fixed() {
-    std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() {}
 
 // Getter
-int Fixed::getRawBits(void) const {
-    std::cout << "getRawBits member function called" << std::endl;
-    return this->_raw;
-}
+int Fixed::getRawBits(void) const { return this->_raw; }
 
 // Setter
-void Fixed::setRawBits(int const raw) {
-    this->_raw = raw;
-}
+void Fixed::setRawBits(int const raw) { this->_raw = raw; }
 
 // Convert to int
 int Fixed::toInt(void) const {
@@ -115,7 +99,7 @@ Fixed Fixed::operator*(Fixed const &rhs) const {
     long long temp = static_cast<long long>(this->_raw) * static_cast<long long>(rhs._raw);
     
     Fixed prod;
-    prod.setRawBits(static_cast<int>(temp) / scale);
+    prod.setRawBits(static_cast<int>(temp / scale));
     return prod;    
 }
 
