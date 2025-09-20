@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 21:46:12 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/08/20 23:11:39 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/09/19 21:48:07 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class   HumanA {
     public:
         HumanA(const std::string &name, Weapon &weapon);
         void attack() const;
-        
 };
 
 #endif  // HUMANA_HPP

@@ -6,7 +6,7 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 21:09:28 by jparnahy          #+#    #+#              #
-#    Updated: 2025/08/01 21:17:32 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/09/19 20:45:38 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,26 @@ SRC_DIR = src
 INC_DIR = includes
 OBJ_DIR = obj
 
-#Compiler and Flags
-CPP = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
-
 #Source and objects files
-SRC = $(wildcard $(SRC_DIR)/*.cpp)
-OBJ = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
+SRC = main.cpp \
+		Contact.cpp \
+		PhoneBook.cpp \
+		PhoneBookApp.cpp \
+		Utils.cpp \
+		UtilsFormat.cpp \
+
+OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.cpp=.o))
+
+#toolchain
+CPP = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR) $(DEBUG_FLG)
+
+#quiet recursive make ("entering/leaving directory")
+MAKEFLAGS += --no-print-directory
+
+#Valgrind flags
+VALGRIND = valgrind --leak-check=full --show-leak-kinds=all \
+			--track-origins=yes --track-fds=yes
 
 #Tools
 #clear the implicit rules
@@ -86,9 +99,12 @@ $(NAME): $(OBJ)
 	@echo
 
 #compiles each .cpp into .o inside the obj/ folder
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@$(MKDIR) $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	@$(CPP) $(FLAGS) -c $< -o $@
+
+#ensure obj dir exists
+$(OBJ_DIR):
+	@$(MKDIR) $(OBJ_DIR)
 
 #object cleaning
 clean: 
@@ -113,14 +129,31 @@ fclean: clean
 	@echo "$(YELLOW)  $(GEAR) Executable removed.$(RESET)"
 	@echo
 
-#recompiling
+#executable cleaninh
+eclean: 
+	@echo "$(RED)$(CROSS) Removing executable... $(RESET)"
+	@for i in $$(seq $(PROGRESS_BAR_LENGTH_CLEAN)); do \
+		printf "$(RED_MARK)=$(RESET)"; \
+		sleep 0.01; \
+	done; \
+	$(RM) $(NAME)
+	@echo "$(YELLOW)  $(GEAR) Executable removed.$(RESET)"
+	@echo
+
+#rebuild
 re: fclean all
+
+#re exec
+rerun: re run
+
+#run
+run: $(NAME)
+	@./$(NAME)
 
 #valgrind
 hell: re
 	@echo "$(RED)🔍 Running Valgrind...$(RESET)"
-	valgrind --leak-check=full --show-leak-kinds=all \
-		--track-origins=yes --track-fds=yes ./$(NAME)
+	@$(VALGRIND) ./$(NAME)
 
 #to avoid conflits with files named clean, fclean and re
-.PHONY: all clean fclean re hell
+.PHONY: all clean fclean eclean re rerun run hell

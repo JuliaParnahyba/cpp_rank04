@@ -6,7 +6,7 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 18:22:54 by jparnahy          #+#    #+#              #
-#    Updated: 2025/08/14 22:00:35 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/09/19 20:44:23 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,20 +14,29 @@
 NAME = zombieHorde
 
 #files
-SRC_DIR = src
-INC_DIR = includes
+SRC_DIR = .
 OBJ_DIR = obj
 
-#source and object files
-SRC = $(wildcard $(SRC_DIR)/*.cpp)
-OBJ = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
+#source files
+SRC = main.cpp \
+		Zombie.cpp\
+		zombieHorde.cpp \
 
-#compiler an flags
+#objects files
+OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.cpp=.o))
+
+#toolchain
 CPP = c++
-DEBUG_FLG ?=
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR) $(DEBUG_FLG)
+FLAGS = -Wall -Wextra -Werror -std=c++98 
 
-#tools
+#quiet recursive make ("entering/leaving directory")
+MAKEFLAGS += --no-print-directory
+
+#Valgrind flags
+VALGRIND = valgrind --leak-check=full --show-leak-kinds=all \
+			--track-origins=yes --track-fds=yes
+
+#utils
 #clear the implicit rules
 RM = rm -f
 MKDIR = mkdir -p
@@ -61,7 +70,6 @@ FLGS = 🏳️
 GEAR = ⚙️
 BOX = 📦
 NOR = 🔎
-BUG = ☢️
 
 # Barra de progresso
 PROGRESS_BAR_LENGTH = 50
@@ -87,9 +95,12 @@ $(NAME): $(OBJ)
 	@echo
 
 #compiles .cpp → .o inside the obj/ folder (with auto-deps)
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@$(MKDIR) $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	@$(CPP) $(FLAGS) -c $< -o $@
+
+#obj folder
+$(OBJ_DIR):
+	@$(MKDIR) $(OBJ_DIR)
 
 #object cleaning
 clean: 
@@ -114,37 +125,31 @@ fclean: clean
 	@echo "$(YELLOW)  $(GEAR) Executable removed.$(RESET)"
 	@echo
 
+#executable cleaninh
+eclean: 
+	@echo "$(RED)$(CROSS) Removing executable... $(RESET)"
+	@for i in $$(seq $(PROGRESS_BAR_LENGTH_CLEAN)); do \
+		printf "$(RED_MARK)=$(RESET)"; \
+		sleep 0.01; \
+	done; \
+	$(RM) $(NAME)
+	@echo "$(YELLOW)  $(GEAR) Executable removed.$(RESET)"
+	@echo
+
 #rebuild
 re: fclean all
+
+#re exec
+rerun: re run
+
+#run
+run: $(NAME)
+	@./$(NAME)
 
 #valgrind
 hell: re
 	@echo "$(RED)🔍 Running Valgrind...$(RESET)"
-	valgrind --leak-check=full --show-leak-kinds=all \
-		--track-origins=yes --track-fds=yes ./$(NAME)
-
-#main testers
-test:
-	@$(MAKE) -s --no-print-directory re DEBUG_FLG=-DRUN_TESTS
-	@echo "$(CYAN)$(BUG) Main tests logs ON...$(RESET)"
-	@echo
-
-#main testers + debug log and valgrind
-debug_tests:
-	@$(MAKE) -s --no-print-directory re DEBUG_FLG="-DRUN_TESTS -DDEBUG_MODE"
-	@echo "$(CYAN)$(BUG) Main tests logs ON with Valgrind...$(RESET)"
-	@echo
-	@echo "$(RED)🔍 Running Valgrind...$(RESET)"
-	valgrind --leak-check=full --show-leak-kinds=all \
-		--track-origins=yes --track-fds=yes ./$(NAME)
-	@echo
-
-#debug dest. log
-debug: 
-	@$(MAKE) re DEBUG_FLG=-DDEBUG_MODE --no-print-directory
-	@echo "$(CYAN)$(BUG) Debug mode logs ON...$(RESET)"
-	@echo
-
+	@$(VALGRIND) ./$(NAME)
 
 #to avoid conflits with files named clean, fclean and re
-.PHONY: all clean fclean re hell debug
+.PHONY: all clean fclean eclean re hell run rerun

@@ -6,7 +6,7 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 21:40:04 by jparnahy          #+#    #+#              #
-#    Updated: 2025/08/19 21:54:58 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/09/19 22:02:11 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,22 @@
 NAME = weapon_demo
 
 #files
-SRC_DIR = src
-INC_DIR = includes
+SRC_DIR = .
+INC_DIR = .
 OBJ_DIR = obj
 
-#source and object files
-SRC = $(wildcard $(SRC_DIR)/*.cpp)
-OBJ = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
+#source files
+SRC = main.cpp \
+		HumanA.cpp \
+		HumanB.cpp \
+		Weapon.cpp
+
+#objects files
+OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.cpp=.o))
 
 #compiler an flags
 CPP = c++
-DEBUG_FLG ?=
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR) $(DEBUG_FLG)
+FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 
 #quiet recursive make ("entering/leaving directory")
 MAKEFLAGS += --no-print-directory
@@ -34,9 +38,10 @@ MAKEFLAGS += --no-print-directory
 VALGRIND = valgrind --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes --track-fds=yes
 
-#tools
+#Tools
 #clear the implicit rules
 RM = rm -f
+#folder creat
 MKDIR = mkdir -p
 
 # Colors for the compilation
@@ -94,9 +99,12 @@ $(NAME): $(OBJ)
 	@echo
 
 #compiles .cpp → .o inside the obj/ folder (with auto-deps)
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@$(MKDIR) $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	@$(CPP) $(FLAGS) -c $< -o $@
+
+#obj folder
+$(OBJ_DIR):
+	@$(MKDIR) $(OBJ_DIR)
 
 #object cleaning
 clean: 
@@ -135,6 +143,9 @@ eclean:
 #rebuild
 re: fclean all
 
+#re exec
+rerun: re run
+
 #execute after build
 run: $(NAME)
 	@./$(NAME)
@@ -144,24 +155,5 @@ hell: re
 	@echo "$(RED)🔍 Running Valgrind...$(RESET)"
 	@$(VALGRIND) ./$(NAME)
 
-#main test (#ifdef RUN_TESTS)
-test:
-	@$(MAKE) re DEBUG_FLG=-DRUN_TESTS
-	@echo "$(CYAN)$(BUG) Tester main enabled (RUN_TESTS)...$(RESET)"
-	@echo
-
-#main test with valgrind
-test_hell:
-	@$(MAKE) -s re DEBUG_FLG=-DRUN_TESTS
-	@echo "$(CYAN)$(BUG) Tester main enabled (RUN_TESTS) under Valgrind...$(RESET)"
-	@echo
-	@echo "$(RED)🔍 Running Valgrind...$(RESET)"
-	@$(VALGRIND) ./$(NAME)
-	@echo
-
-# optional aliases (keep previous naming style)
-tests: test
-tests_hell: test_hell
-
 #to avoid conflits with files named clean, fclean and re
-.PHONY: all clean fclean eclean re run hell test test_hell tests tests_hell
+.PHONY: all clean fclean eclean re rerun run hell

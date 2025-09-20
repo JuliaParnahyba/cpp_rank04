@@ -6,7 +6,7 @@
 #    By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/16 12:19:04 by jparnahy          #+#    #+#              #
-#    Updated: 2025/06/29 23:46:48 by jparnahy         ###   ########.fr        #
+#    Updated: 2025/09/19 19:54:12 by jparnahy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,18 +18,26 @@ SRC_DIR = .
 OBJ_DIR = obj
 
 #source files
-SRC = $(wildcard $(SRC_DIR)/*.cpp)
+SRC = megaphone.cpp 
 
-#object files
-OBJ = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
+#objects files
+OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.cpp=.o))
+
+#quiet recursive make ("entering/leaving directory")
+MAKEFLAGS += --no-print-directory
+
+#Valgrind flags
+VALGRIND = valgrind --leak-check=full --show-leak-kinds=all \
+			--track-origins=yes --track-fds=yes
 
 #compiler and flags 
 CPP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-#tools
+#Tools
 #clear the implicit rules
 RM = rm -f
+#folder creat
 MKDIR = mkdir -p
 
 # Colors for the compilation
@@ -116,11 +124,14 @@ fclean: clean
 #recompiling
 re: fclean all
 
+#run
+run: $(NAME)
+	@./$(NAME)
+
 #valgrind
 hell: re
 	@echo "$(RED)🔍 Running Valgrind...$(RESET)"
-	valgrind --leak-check=full --show-leak-kinds=all \
-		--track-origins=yes --track-fds=yes ./$(NAME)
+	@$(VALGRIND) ./$(NAME)
 
 #to avoid conflits with files named clean, fclean and re
 .PHONY: all clean fclean re hell
