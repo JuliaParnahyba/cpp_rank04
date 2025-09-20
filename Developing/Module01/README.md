@@ -132,6 +132,16 @@ Cada exercício possui seu próprio `Makefile` com as regras usuais:
 * `fclean`
 * `re`
 
+---
+Regras extras:
+
+* `eclean` - limpa apenas o executável
+* `hell` - recompila executando o programa em modo Valgrind
+* `run` - compila e executa o programa
+* `rerun` - recompila e executa o programa
+
+---
+
 <br>
 
 ## ⚠️ Restrições
