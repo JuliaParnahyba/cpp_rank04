@@ -6,41 +6,46 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 21:01:54 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/06 21:15:07 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/07 21:36:19 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* --------- INCLUDE GUARD --------- */
 // if not defined, define this.
-#ifndef CLAP_TRAP_HPP    // start include guard: prevent multiple inclusion
-#define CLAP_TRAP_HPP    // define guard macro once for this translation unit
+#ifndef CLAPTRAP_HPP    // start include guard: prevent multiple inclusion
+#define CLAPTRAP_HPP    // define guard macro once for this translation unit
 
 /* --------- STANDARD LIBRARIES --------- */
 #include <iostream>
+#include <string>
 
-class   Person {
+class   ClapTrap {
+    protected:
+        std::string _name;
+        int         _hitPoints;
+        int         _energyPoints;
+        int         _attackDamage;
+
     public:
-        // ClapTrap();                                // default constructor
-        // ClapTrap(const Fixed &other);              // copy constructor
-        // ClapTrap &operator=(const Fixed &other);   // copy assignment
-        // ~ClapTrap();                               // destructor
+        // OCF - Orthodox Canonical Form
+        ClapTrap();                                 // default constructor
+        explicit ClapTrap(const std::string &name);
 
-        // public attributes
-        std::string name;
-        int         age;
+        ClapTrap(const ClapTrap &other);            // copy constructor
+        ClapTrap &operator=(const ClapTrap &rhs);   // copy assignment
+        ~ClapTrap();                                // destructor
 
         // methods 
-        void    introduce(void);
+        void    attack(const std::string &target);
+        void    takeDamage(unsigned int amount);
+        void    beRepaired(unsigned int amount);
+
+        // getter for tests
+        const std::string   &getName() const;
+        int                 getHitPoints() const;
+        int                 getEnergyPoints() const;
+        int                 getAttackDamage() const;
 };
 
-class   Studant : public Person {
-    public:
-        // public attributes
-        int registration;
-
-        // methods
-        void    study(void);
-};
-
-#endif // CLAP_TRAP_HPP
+#endif // CLAPTRAP_HPP
 // end include guard
