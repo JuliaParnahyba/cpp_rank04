@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 20:37:19 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/07 22:19:38 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/08 21:07:33 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,21 @@ int main() {
     def = a;
 
     std::cout << "\n" << std::endl;
+    std::cout << "Attacks from " << a.getName() << std::endl;
     a.attack("Borg");
+    std::cout << b.getName() << " Taking damage " << std::endl;
+    b.takeDamage(999);
 
-    std::cout << "\nEnergy Points of " << a.getName()
-        << " are " << a.getEnergyPoints() << std::endl;
+
+    std::cout << "\n";
+    std::cout << a.getName() << "`s Energy Points are " << a.getEnergyPoints() << std::endl;
+    std::cout << a.getName() << "`s Hit Points are " << a.getHitPoints() << std::endl;
+    std::cout << a.getName() << "`s Attack Damage are " << a.getAttackDamage() << std::endl;
+
+    std::cout << "\n";
+    std::cout << b.getName() << "`s Energy Points are " << b.getEnergyPoints() << std::endl;
+    std::cout << b.getName() << "`s Hit Points are " << b.getHitPoints() << std::endl;
+    std::cout << b.getName() << "`s Attack Damage are " << b.getAttackDamage() << std::endl;
 
     std::cout << "\nIts done\n" << std::endl;
 
