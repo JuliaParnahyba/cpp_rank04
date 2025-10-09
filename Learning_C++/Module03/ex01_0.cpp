@@ -1,80 +1,54 @@
-/* 
-    Chamando explicitamente a função da base
+/*
+    Parte 1 — O que é herança, em essência
 
-    # O cenário
-    - Quando uma classe derivada herda um método da base, ela tem duas opções:
-        Usar o método exatamente como está, sem redefinir;
-        Reescrever o método com o mesmo nome e assinatura, o que oculta o original (como visto no anterior).
+    Definição simples: Herança é o mecanismo que permite criar uma nova classe
+    baseada em outra já existente, reutilizando código e especializando comportamentos.
 
-    Mas as vezes se quer redefinir o comportamento, sem perder a lógica original da base.
-    Nesse caso, chama explicitamente o método da base dentro da nova versão.
+    Em outras palavras: Uma classe filha herda os atributos e métodos da classe mãe,
+    podendo usar, expandir ou sobrescrever o que veio dela.
+
+    Analogia do mundo real:
+
+        Pensa numa família:
+
+        # Pessoa → tem nome e idade.
+        # Aluno → é uma pessoa que também tem matrícula.
+        # Professor → é uma pessoa que também tem salário.
+
+        Repare que:
+        Aluno é uma Pessoa, bem como Professor é uma Pessoa, cada um com 
+        "comportamento especializado"
+
+        Quando faz: `Aluno a;`
+        O compilador cria um objeto com duas partes internas:
+            [Pessoa] → nome, idade, apresentar()
+            [Aluno]  → matricula, estudar()
+        
+        Então, Aluno possui tudo que Pessoa tem + o que ele mesmo define.
+
 */
+
+// Exercício 1 — “Entendendo a herança básica”
 
 #include <iostream>
-/*
-class   Base {
-    public:
-        void    sayHello() {
-            std::cout << "Hello from Base!" << std::endl;
-        }
-};
-
-class   Der : public Base {
-    public:
-        void    sayHello() {
-            std::cout << "Der adds: ";
-            Base::sayHello(); // explicity call from base 
-        }
-};
-
-int main() {
-    std::cout << "Begin\n" << std::endl;
-
-    Der d;
-    d.sayHello();
-
-    std::cout << "\nEnd\n" << std::endl;
-
-    return 0;
-}
-*/
-
-/* 
-    O que acontece:
-        `Der::sayHello()` substitui o método da base (oculta ele).
-        Dentro da derivada, chama `Base::sayHello()` para reutilizar o comportamento.
-    
-    Isso é herança com extensão de comportamento — não apaga o que herdou, 
-    apenas adiciona algo antes/depois.
-
-    Internamente o `Der` contém um subobjeto `Base`, quando chama `Base::sayHello()`, 
-    para o compilador está sendo chamado esse método dentro da parte base do mesmo objeto.
-
-    Então:
-    [Objeto Der]
-        ├── parte Base  → Base::sayHello()
-        └── parte Der  → código adicional
-    
-    IMPORTANTE: Se não usar `Base::`, o compilador chama o método da derivada (recursivamente!),
-    o que causa loop infinito, por isso a qualificação com `Base::` é obrigatória para chamar a
-    versão herdada.
-*/
-
-// Exercício 7 — “Extendendo comportamento da base”
 
 class   Vehicle {
     public:
-        void    startEngine() {
-            std::cout << "Vehicle engine started!" << std::endl;
+        int speed;    
+
+        void    move(void) {
+            std::cout << "Vehicle is moving at " 
+                << speed << "Km/h." << std::endl;
         }
 };
 
 class   Car : public Vehicle {
     public:
-        void    startEngine() {
-            std::cout << "Car checks systems..." << std::endl;
-            Vehicle::startEngine();
-            std::cout << "Car ready to drive!" << std::endl;
+        int doors;
+    
+        void    honk() {
+            std::cout << "It has " << doors 
+                << " doors and a loud honk." << std::endl;
         }
 };
 
@@ -82,17 +56,14 @@ int main() {
     std::cout << "Begin\n" << std::endl;
 
     Car c;
-    c.startEngine();
+
+    c.speed = 160;
+    c.doors = 4;
+
+    c.move();
+    c.honk();
 
     std::cout << "\nEnd\n" << std::endl;
 
     return 0;
 }
-
-/*
-    Resultado do conceito 7 — chamada explícita da base:
-
-    A derivada pode sobrescrever um método, mas ainda reutilizar a lógica da base 
-    usando `Base::metodo()`. O padrão ideal quando se quer “melhorar” um comportamento 
-    herdado sem duplicar código.
-*/
