@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 21:07:46 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/08 21:07:26 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/08 21:24:05 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
         _energyPoints = rhs._energyPoints;
         _attackDamage = rhs._attackDamage;
     }
-    std::cout << "[ClapTrap] copy-assig: " << _name << std::endl;
+    std::cout << "[ClapTrap] copy-assign: " << _name << std::endl;
     
     return *this;
 }
@@ -74,14 +74,29 @@ void    ClapTrap::takeDamage(unsigned int amount) {
     if ((_hitPoints - dmg) < 0)
         _hitPoints = 0;
     else
-        _hitPoints = _hitPoints - dmg;
+        _hitPoints -= dmg;
     std::cout << "ClapTrap " << _name << " took "
         << amount << " damage, HP now " << _hitPoints << "."
         << std::endl;
 }
 
-//void    ClapTrap::beRepaired(unsigned int amount)
+void    ClapTrap::beRepaired(unsigned int amount) {
+    if (_hitPoints == 0) {
+        std::cout << "ClapTrap " << _name 
+            << " can’t repair: no hit points." << std::endl;
+        return;
+    }
+    if (_energyPoints == 0) {
+        std::cout << "ClapTrap "<< _name
+            << " can’t repair: no energy." << std::endl;
+        return;
+    }
+    _energyPoints -= 1;
+    _hitPoints += static_cast<int>(amount);
+    std::cout << "ClapTrap " << _name << " repairs " << amount
+        << " HP, HP now " << _hitPoints << "." << std::endl;
 
+}
 
 // getters
 const std::string &ClapTrap::getName() const { return this->_name; }
