@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 21:58:15 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/08 22:51:48 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/09 22:02:24 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
         ClapTrap::operator=(rhs);
     }
     std::cout << "[ScavTrap] copy-assign: " << _name << std::endl;
-    
     return *this;
 }
 
@@ -43,4 +42,15 @@ ScavTrap::~ScavTrap() {
     std::cout << "[ScavTrap] dtor: " << _name << std::endl;
 }
 
-// void    guardGate();
+// inherit Method
+void    ScavTrap::attack(const std::string &target) {
+    std::cout << "[ScavTrap] Preparing to strike like a pro!" << std::endl;
+    ClapTrap::attack(target);
+    std::cout << "[ScavTrap] Attack sequence complete!" << std::endl;
+}
+
+// own Method
+void    ScavTrap::guardGate() {
+    std::cout << "ScavTrap " << _name 
+        << " is now in Gate keeper mode." << std::endl;
+}

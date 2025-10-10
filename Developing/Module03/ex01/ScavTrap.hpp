@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 21:50:17 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/08 22:11:04 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/09 21:37:24 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class   ScavTrap : public ClapTrap {
         ~ScavTrap();                                // dtor
 
         // method
+        void    attack(const std::string &target);
         void    guardGate();
 };
 
