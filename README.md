@@ -26,21 +26,21 @@ CPP/
 │   └── sync_vog.sh
 ├── Developing/
 │   ├── Module00/
-│   │   ├── ex00/        # Megaphone
-│   │   ├── ex01/        # PhoneBook
-│   │   ├── ex02/        # The Job of Your Dreams
+│   │   ├── ex00/       # Megaphone
+│   │   ├── ex01/       # PhoneBook
+│   │   ├── ex02/       # The Job of Your Dreams
 │   │   ├── en.subject_Module00.pdf
 │   │   └── README.md
 │   ├── Module01/
-│   │   ├── ex00/        # Zombie
-│   │   ├── ex01/        # ZombieHorde
+│   │   ├── ex00/       # Zombie
+│   │   ├── ex01/       # ZombieHorde
 │   │   └── ...
 │   ├── Module02/
-│   │   ├── ex00/        # Canonical Form Class
+│   │   ├── ex00/       # Canonical Form Class
 │   │   └── ...
-│   ├── Module03/
+│   ├── Module03/       # Class Inheritance
 │   │   └── ...
-│   └── Module04/
+│   └── Module04/       # Polymorphisms
 │       └── ...
 ├── Learning_C++/
 │   ├── Module00/
@@ -66,9 +66,9 @@ CPP/
 | --------- | ------------------------------------------------------------------------------ | -------------- |
 | Module 00 | Namespaces, classes, métodos, `const`, `static`, I/O, listas de inicialização  | ✅ Concluído |
 | Module 01 | Alocação dinâmica, referências, ponteiros para membros, `switch`               | ✅ Concluído |
-| Module 02 | Sobrecarga de operadores, Canonical Form, fixed-point, comparação e aritmética | ⚙️ Em progresso |
-| Module 03 | Herança, construtores/destrutores, múltipla herança, especializações de classe | ⏳ Aguardando |
-| Module 04 | Polimorfismo, classes abstratas, interfaces e deep copies                      | ⏳ Aguardando |
+| Module 02 | Sobrecarga de operadores, Canonical Form, fixed-point, comparação e aritmética | ✅ Concluído |
+| Module 03 | Herança, construtores/destrutores, múltipla herança, especializações de classe | ✅ Concluído |
+| Module 04 | Polimorfismo, classes abstratas, interfaces e deep copies                      | ⚙️ Em progresso |
 
 > ⚠️ *STL e containers como `vector` são permitidos apenas a partir do Módulo 08.*
 
