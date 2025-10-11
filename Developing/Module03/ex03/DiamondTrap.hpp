@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 18:26:39 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/11 18:52:24 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/11 19:52:05 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ class   DiamondTrap : public FragTrap, public ScavTrap {
         // method
         void    attack(const std::string &target);      // will delegate to ScavTrap::attack
         void    whoAmI();
+
+        //getter for tests
+        const std::string   &getName() const;
 };
 
 #endif // DIAMONDTRAP_HPP

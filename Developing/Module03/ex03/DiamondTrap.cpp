@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 18:37:03 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/11 19:27:34 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/11 19:53:15 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,18 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs) {
 DiamondTrap::~DiamondTrap() {
     std::cout << "[DiamondTrap] dtor: " << _name << std::endl;
 }
+
+// public methods
+void    DiamondTrap::attack(const std::string &target) {
+    std::cout << "[DiamondTrap] Preparing to strike like a pro!" << std::endl;
+    ScavTrap::attack(target);
+    std::cout << "[DiamondTrap] Attack sequence complete!" << std::endl;
+}
+
+void    DiamondTrap::whoAmI() {
+    std::cout << "I am " << this->_name << ", and my ClapTrap name is "
+        << ClapTrap::_name << std::endl;
+}
+
+// getter
+const std::string   &DiamondTrap::getName() const { return this->_name; }
