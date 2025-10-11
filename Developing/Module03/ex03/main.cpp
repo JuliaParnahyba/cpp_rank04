@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 18:25:05 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/11 19:54:24 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/11 20:07:07 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,39 @@ int main() {
         std::cout << c.getName() << "'s Attack Damage are " << c.getAttackDamage() << std::endl;
         std::cout << "\n";
         c.whoAmI();
+        std::cout << "\n";
+        std::cout << "         DISTRUCTOR\n";
+    }
+
+    {
+        std::cout << "\n---------------------------\n";
+        std::cout << "  TEST: ENERGY DEPLETION\n";
+        std::cout << "---------------------------\n";
+
+        DiamondTrap tired("Tired");
+        std::cout << "\n";
+        for (int i = 0; i < 51; ++i) {  // força energia a zerar e tentar mais um ataque
+            tired.attack("Dummy");
+        }
+        std::cout << "Final Energy Points: " << tired.getEnergyPoints() << std::endl;
+        
+        std::cout << "\n";
+        std::cout << "         DISTRUCTOR\n";
+    }
+
+    {
+        std::cout << "\n---------------------------\n";
+        std::cout << "  TEST: NO HIT POINTS\n";
+        std::cout << "---------------------------\n";
+
+        DiamondTrap broken("Broken");
+        std::cout << "\n";
+        broken.takeDamage(999);   // HP → 0
+        broken.attack("Ghost");   // deve recusar
+        broken.beRepaired(10);    // deve recusar também
+        std::cout << "Final HP: " << broken.getHitPoints()
+                << ", Energy: " << broken.getEnergyPoints() << std::endl;
+        
         std::cout << "\n";
         std::cout << "         DISTRUCTOR\n";
     }
