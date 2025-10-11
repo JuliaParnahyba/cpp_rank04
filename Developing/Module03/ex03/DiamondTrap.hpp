@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 18:26:39 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/11 18:46:41 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/11 18:52:24 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@
 // inherit class
 class   DiamondTrap : public FragTrap, public ScavTrap {
     private:
-        std::string _name;
+        std::string _name;                              // DiamondTraps's own name
         
     public:
         // OCF
-        DiamondTrap();                                 // def. ctor
-        explicit DiamondTrap(const std::string &name); // expl. ctor
+        DiamondTrap();                                  // def. ctor
+        explicit DiamondTrap(const std::string &name);  // expl. ctor
 
-        DiamondTrap(const DiamondTrap &other);            // copy ctor
-        DiamondTrap &operator=(const DiamondTrap &rhs);   // copy asgn
-        ~DiamondTrap();                                // dtor
+        DiamondTrap(const DiamondTrap &other);          // copy ctor
+        DiamondTrap &operator=(const DiamondTrap &rhs); // copy asgn
+        ~DiamondTrap();                                 // dtor
 
         // method
-        void    attack(const std::string &target);
+        void    attack(const std::string &target);      // will delegate to ScavTrap::attack
         void    whoAmI();
 };
 
