@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:27:46 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/18 23:37:09 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/18 23:53:24 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Cat &Cat::operator=(const Cat &rhs) {
 // destructor
 Cat::~Cat() {
     delete brain;
-    std::cout << "[Cat] dto" << std::endl;
+    std::cout << "[Cat] dtor" << std::endl;
 }                          
 
 // methods 
