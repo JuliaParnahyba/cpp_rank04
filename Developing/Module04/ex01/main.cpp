@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:28:19 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/18 23:32:19 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/18 23:40:10 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,63 @@ int main() {
     Animal *a = new Dog();
     a->makeSound();
     delete a;
+
+    std::cout << "=== CAT BASIC ===" << std::endl;
+    Cat c1;
+    std::cout << "\n";
+
+    std::cout << "[c1.setIdea(0, \"Chase the ball\")]" << std::endl;
+    c1.setIdea(0, "Chase the ball");
+    std::cout << "[c1.setIdea(1, \"Guard the house\")]" << std::endl;
+    c1.setIdea(1, "Guard the house");
+    std::cout << "\n";
+
+    std::cout << "[c1.getIdea]" << std::endl;
+    std::cout << "c1[0]: " << c1.getIdea(0) << std::endl;
+    std::cout << "c1[1]: " << c1.getIdea(1) << std::endl;
+    std::cout << "\n";
+
+    std::cout << "=== COPY CTOR (deep) ===" << std::endl;
+    Cat c2 = c1;
+    std::cout << "[c2.getIdea]" << std::endl;
+    std::cout << "c2[0]: " << c2.getIdea(0) << std::endl;
+    std::cout << "c2[1]: " << c2.getIdea(1) << std::endl;
+    std::cout << "\n";
+
+    std::cout << "[c2.setIdea(0, \"Eat snacks\")]" << std::endl;
+    c2.setIdea(0, "Eat snacks");
+    std::cout << "\n";
+
+    std::cout << "[*.getIdea]" << std::endl;
+    std::cout << "c1[0]: " << c1.getIdea(0) << std::endl; // deve continuar "Chase the ball"
+    std::cout << "c1[1]: " << c1.getIdea(1) << std::endl;
+    std::cout << "c2[0]: " << c2.getIdea(0) << std::endl; // alterado só no b2
+    std::cout << "c2[1]: " << c2.getIdea(1) << std::endl;
+    std::cout << "\n";
+
+    std::cout << "=== COPY ASSIGN (deep) ===" << std::endl;
+    Cat c3;
+    c3 = c1;
+    std::cout << "[c3.getIdea]" << std::endl;
+    std::cout << "c3[0]: " << c3.getIdea(0) << std::endl;
+    std::cout << "c3[1]: " << c3.getIdea(1) << std::endl;
+    std::cout << "\n";
+
+    std::cout << "[c3.setIdea(1, \"Sleep on keyboard\")]" << std::endl;
+    c3.setIdea(1, "Sleep on keyboard");
+    std::cout << "\n";
+
+    std::cout << "[*.getIdea]" << std::endl;
+    std::cout << "c1[0]: " << c1.getIdea(0) << std::endl; // deve continuar "Chase the ball"
+    std::cout << "c1[1]: " << c1.getIdea(1) << std::endl;
+    std::cout << "c3[0]: " << c3.getIdea(0) << std::endl; // alterado só no b2
+    std::cout << "c3[1]: " << c3.getIdea(1) << std::endl;
+    std::cout << "\n";
+
+    std::cout << "=== POLIMORPHISM + VIRTUAL DESTRUCTOR ===" << std::endl;
+    Animal *e = new Cat();
+    e->makeSound();
+    delete e;
     
     std::cout << "\n";
     std::cout << "=== DESTRUCTORS ===" << std::endl;
