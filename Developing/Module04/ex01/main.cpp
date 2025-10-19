@@ -6,15 +6,13 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:28:19 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/18 23:40:10 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/19 00:01:10 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 #include "Brain.hpp"
 
 int main() {
@@ -193,6 +191,23 @@ int main() {
     Animal *e = new Cat();
     e->makeSound();
     delete e;
+    std::cout << "\n";
+
+    std::cout << "=== Array test (no leaks, polymorphism) ===\n";
+    const int N = 6;
+    Animal* zoo[N];
+
+    for (int i = 0; i < N; ++i) {
+        if (i < N/2) zoo[i] = new Dog();
+        else         zoo[i] = new Cat();
+    }
+
+    for (int i = 0; i < N; ++i) {
+        std::cout << zoo[i]->getType() << " -> ";
+        zoo[i]->makeSound(); // polimorfismo
+    }
+
+    for (int i = 0; i < N; ++i) delete zoo[i];
     
     std::cout << "\n";
     std::cout << "=== DESTRUCTORS ===" << std::endl;
