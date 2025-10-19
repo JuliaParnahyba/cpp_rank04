@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:29:52 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/18 22:36:03 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/18 23:18:32 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <string>
 
 class   Brain {
-    protected:
+    private:
         std::string ideas[100];
 
     public:
@@ -28,7 +28,7 @@ class   Brain {
         Brain();                              // default constructor
         Brain(const Brain &other);            // copy constructor
         Brain &operator=(const Brain &rhs);   // copy assignment
-        virtual ~Brain();                     // destructor
+        ~Brain();                     // destructor
 
         // utils for tests
         void                setIdea(int i, const std::string &idea);
