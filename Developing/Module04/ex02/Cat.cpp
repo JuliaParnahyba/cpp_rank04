@@ -6,11 +6,12 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 19:32:56 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/19 19:32:57 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 11:59:15 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include <iostream>
 
 // default constructor
 Cat::Cat() : Animal("Cat"), brain(new Brain()) {
@@ -24,7 +25,6 @@ Cat::Cat(const Cat &other) : Animal(other), brain(new Brain(*other.brain)) {
 
 // copy assignment
 Cat &Cat::operator=(const Cat &rhs) {
-    std::cout << "[Cat] copy-assign" << std::endl;
     if (this != &rhs) {
         Animal::operator=(rhs);
         // replace this brain for a copy
@@ -32,6 +32,7 @@ Cat &Cat::operator=(const Cat &rhs) {
         delete brain;
         brain = newBrain;
     }
+    std::cout << "[Cat] copy-assign" << std::endl;
     return *this;
 }
 
@@ -43,7 +44,7 @@ Cat::~Cat() {
 
 // methods 
 void Cat::makeSound() const {
-    std::cout << "[Cat] The sound of " << this->type << " is Maiuuu!" << std::endl;
+    std::cout << "[Cat] Meow!" << std::endl;
 }
 
 // utils for tests

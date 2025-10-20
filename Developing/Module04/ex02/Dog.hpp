@@ -6,14 +6,14 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 19:33:16 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/19 19:33:16 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 12:00:13 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* --------- INCLUDE GUARD --------- */
 // if not defined, define this.
-#ifndef DOG_HPP    // start include guard: prevent multiple inclusion
-#define DOG_HPP    // define guard macro once for this translation unit
+#ifndef DOG_HPP
+#define DOG_HPP
 
 /* --------- PROJECT HEADERS --------- */
 #include "Animal.hpp"      // Animal class for base class to inherit

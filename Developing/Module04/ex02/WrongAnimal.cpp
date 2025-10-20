@@ -6,11 +6,12 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 19:33:34 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/19 19:33:35 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 12:01:34 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
+#include <iostream>
 
 // default constructor
 WrongAnimal::WrongAnimal() : type("WrongAnimal") {
@@ -37,7 +38,7 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &rhs) {
 
 // destructor
 WrongAnimal::~WrongAnimal() {
-    std::cout << "[WrongAnimal] dtor" << std::endl;;
+    std::cout << "[WrongAnimal] dtor" << std::endl;
 }
 
 // methods 

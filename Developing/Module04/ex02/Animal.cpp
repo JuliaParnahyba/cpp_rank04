@@ -6,18 +6,19 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 19:32:23 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/19 19:37:51 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 11:56:37 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include <iostream>
 
 // default constructor
 Animal::Animal() : type("Animal") {
     std::cout << "[Animal] default-ctor: " << type << std::endl; 
 }
 
-// constructor named
+// constructor named, with type
 Animal::Animal(const std::string &tp) : type(tp) {
     std::cout << "[Animal] type-ctor: " << type << std::endl;
 }
@@ -32,7 +33,6 @@ Animal &Animal::operator=(const Animal &rhs) {
     if (this != &rhs)
         this->type = rhs.type;
     std::cout << "[Animal] copy-assign: " << type << std::endl;
-
     return *this;
 }
 
@@ -41,7 +41,7 @@ Animal::~Animal() {
     std::cout << "[Animal] dtor: " << type << std::endl;
 }                          
 
-// methods - now will execte only through derived classes
+// methods / behavior - now will execte only through derived classes
 /*
 void Animal::makeSound() const {
     std::cout << "[Animal] * generic animal sound *" << std::endl;

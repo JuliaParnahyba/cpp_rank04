@@ -6,20 +6,16 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 19:33:45 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/19 19:33:46 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 12:04:10 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
+#include <iostream>
 
 // default constructor
 WrongCat::WrongCat() : WrongAnimal("WrongCat") {
     std::cout << "[WrongCat] default-ctor" << std::endl;
-}
-
-// type constructor
-WrongCat::WrongCat(const std::string &tp) : WrongAnimal(tp) {
-    std::cout << "[WrongCat] type-ctor: " << type << std::endl;
 }
 
 // copy constructor
@@ -37,10 +33,10 @@ WrongCat &WrongCat::operator=(const WrongCat &rhs) {
 
 // destructor
 WrongCat::~WrongCat() {
-    std::cout << "[WrongCat] dtor" << std::endl;;
+    std::cout << "[WrongCat] dtor" << std::endl;
 }
 
 // methods 
 void  WrongCat::makeSound() const {
-    std::cout << "[WrongCat] * wrong generic sound *" << std::endl;
+    std::cout << "[WrongCat] * wrong meow *" << std::endl;
 }
