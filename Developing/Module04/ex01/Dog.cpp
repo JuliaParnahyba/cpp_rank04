@@ -6,11 +6,12 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:27:59 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/18 23:27:01 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 11:05:58 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include <iostream>
 
 // default constructor
 Dog::Dog() : Animal("Dog"), brain(new Brain()) {
@@ -32,6 +33,7 @@ Dog &Dog::operator=(const Dog &rhs) {
         delete brain;
         brain = newBrain;
     }
+    std::cout << "[Dog] copy-assign" << std::endl;
     return *this;
 }
 
@@ -41,9 +43,9 @@ Dog::~Dog() {
     std::cout << "[Dog] dtor" << std::endl;
 }                          
 
-// methods 
+// methods / behavior
 void Dog::makeSound() const {
-    std::cout << "[Dog] The sound of " << this->type << " is Au Au!" << std::endl;
+    std::cout << "[Dog] Woof!" << std::endl;
 }
 
 // utils for tests

@@ -6,14 +6,14 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:28:50 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/18 21:28:51 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 11:05:19 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* --------- INCLUDE GUARD --------- */
 // if not defined, define this.
-#ifndef WRONGCAT_HPP    // start include guard: prevent multiple inclusion
-#define WRONGCAT_HPP    // define guard macro once for this translation unit
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
 /* --------- PROJECT HEADERS --------- */
 #include "WrongAnimal.hpp"      // WrongAnimal class for base class to inherit
@@ -21,16 +21,14 @@
 class   WrongCat : public WrongAnimal {
     public:
         // OCF - Orthodox Canonical Form
-        WrongCat();                            // default constructor
-        explicit WrongCat(const std::string &tp);
-
+        WrongCat();                                 // default constructor
         WrongCat(const WrongCat &other);            // copy constructor
         WrongCat &operator=(const WrongCat &rhs);   // copy assignment
-        ~WrongCat();                   // destructor
+        ~WrongCat();                                // destructor
 
-        // methods 
+        // methods (non-virtual) 
         void  makeSound() const;
 };
 
-#endif // WrongCat_HPP
+#endif // WRONGCAT_HPP
 // end include guard

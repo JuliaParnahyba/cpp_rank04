@@ -6,17 +6,17 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:28:11 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/18 23:24:05 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:54:34 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* --------- INCLUDE GUARD --------- */
 // if not defined, define this.
-#ifndef DOG_HPP    // start include guard: prevent multiple inclusion
-#define DOG_HPP    // define guard macro once for this translation unit
+#ifndef DOG_HPP
+#define DOG_HPP
 
 /* --------- PROJECT HEADERS --------- */
-#include "Animal.hpp"      // Animal class for base class to inherit
+#include "Animal.hpp"   // Animal class for base class to inherit
 #include "Brain.hpp"    // Brain class for base class       
 
 class   Dog : public Animal {

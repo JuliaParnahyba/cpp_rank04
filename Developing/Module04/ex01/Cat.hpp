@@ -6,14 +6,14 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:27:52 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/18 23:36:58 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:54:47 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* --------- INCLUDE GUARD --------- */
 // if not defined, define this.
-#ifndef CAT_HPP    // start include guard: prevent multiple inclusion
-#define CAT_HPP    // define guard macro once for this translation unit
+#ifndef CAT_HPP
+#define CAT_HPP
 
 /* --------- PROJECT HEADERS --------- */
 #include "Animal.hpp"   // Animal class for base class
