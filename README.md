@@ -1,20 +1,22 @@
 
 # 🚀 42 C++ Modules
 
-Bem-vinda ao repositório onde documento meu progresso na trilha de **C++ da 42**. Cada módulo representa uma etapa prática no aprofundamento dos conceitos de Programação Orientada a Objetos, utilizando a norma C++98 e sem uso da STL até os módulos finais.
+Este é o repositório onde documento meu progresso na trilha de **C++ da 42**. Cada módulo representa uma etapa prática no aprofundamento dos conceitos de **Programação Orientada a Objetos**, utilizando a norma **C++98** e **sem uso da STL até os módulos finais**.
 
 <br>
 
 ## 🧠 Sobre o projeto
 
-Esta sequência de módulos tem como objetivo apresentar e praticar conceitos fundamentais da linguagem C++:
+Esta sequência de módulos tem como objetivo introduzir e consolidar os fundamentos da linguagem **C++**, com foco em boas práticas e arquitetura orientada a objetos.  
+Entre os principais conceitos abordados estão:
 
-- OOP com C++98
-- Alocação de memória e boas práticas
-- Canonical Orthodox Form
-- Herança e Polimorfismo
-- Criação de classes abstratas e interfaces
-- Sobrecarga de operadores e muito mais...
+- Fundamentos da OOP com C++98  
+- Alocação e gerenciamento de memória  
+- Orthodox Canonical Form (OCF)  
+- Herança e Polimorfismo  
+- Criação de classes abstratas e interfaces  
+- Sobrecarga de operadores e funções  
+- Design orientado a encapsulamento e reuso  
 
 <br>
 
@@ -40,7 +42,7 @@ CPP/
 │   │   └── ...
 │   ├── Module03/       # Class Inheritance
 │   │   └── ...
-│   └── Module04/       # Polymorphisms
+│   └── Module04/       # Polymorphisms & Abstract Classes
 │       └── ...
 ├── Learning_C++/
 │   ├── Module00/
@@ -62,15 +64,15 @@ CPP/
 
 ## 📚 Módulos e Conceitos
 
-| Módulo    | Conceitos Abordados                                                            | Status         |
-| --------- | ------------------------------------------------------------------------------ | -------------- |
+| Módulo    | Conceitos Abordados                                                            | Status       |
+| --------- | ------------------------------------------------------------------------------ | ------------ |
 | Module 00 | Namespaces, classes, métodos, `const`, `static`, I/O, listas de inicialização  | ✅ Concluído |
 | Module 01 | Alocação dinâmica, referências, ponteiros para membros, `switch`               | ✅ Concluído |
 | Module 02 | Sobrecarga de operadores, Canonical Form, fixed-point, comparação e aritmética | ✅ Concluído |
 | Module 03 | Herança, construtores/destrutores, múltipla herança, especializações de classe | ✅ Concluído |
-| Module 04 | Polimorfismo, classes abstratas, interfaces e deep copies                      | ⚙️ Em progresso |
+| Module 04 | Polimorfismo, classes abstratas, interfaces e deep copies                      | ✅ Concluído |
 
-> ⚠️ *STL e containers como `vector` são permitidos apenas a partir do Módulo 08.*
+> ⚠️ *O uso da STL (ex.: vector, map, algorithm) é permitido apenas a partir do Módulo 08.*
 
 <br>
 
@@ -94,7 +96,23 @@ Cada pasta contém seu próprio `Makefile` com as regras:
 ## 🧯 Restrições
 
 * ❌ Não usar: `printf`, `malloc`, `free`, `using namespace`, `friend`
-* ✅ Permitido: Tudo da Standard Library, exceto containers/algoritmos antes do **Módulo 08**
+* ✅ Permitido: tudo da Standard Library, **exceto containers e algoritmos antes do Módulo 08**
+
+<br>
+
+## 🧩 Padrões e Normas
+
+Todos os módulos seguem as diretrizes oficiais da 42:
+- [Norminette](https://github.com/42school/norminette/tree/master/pdf)
+- Subjects oficiais de cada módulo (00–04)
+
+<br>
+
+O estilo adotado é limpo e autodocumentado, priorizando:
+- Clareza e modularidade
+- Mensagens descritivas em construtores e destrutores
+- Uso consistente da Orthodox Canonical Form (OCF)
+- Boas práticas de encapsulamento e RAII
 
 <br>
 
