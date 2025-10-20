@@ -6,17 +6,16 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 22:33:08 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/17 22:37:54 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:33:50 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* --------- INCLUDE GUARD --------- */
 // if not defined, define this.
-#ifndef WRONGANIMAL_HPP    // start include guard: prevent multiple inclusion
-#define WRONGANIMAL_HPP    // define guard macro once for this translation unit
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 /* --------- STANDARD LIBRARIES --------- */
-#include <iostream>
 #include <string>
 
 class   WrongAnimal {
@@ -25,14 +24,13 @@ class   WrongAnimal {
 
     public:
         // OCF - Orthodox Canonical Form
-        WrongAnimal();                            // default constructor
-        explicit WrongAnimal(const std::string &tp);
+        WrongAnimal();                                  // default constructor
+        explicit WrongAnimal(const std::string &tp);    // type constructor
+        WrongAnimal(const WrongAnimal &other);          // copy constructor
+        WrongAnimal &operator=(const WrongAnimal &rhs); // copy assignment
+        ~WrongAnimal();                                 // destructor (non-virtual)
 
-        WrongAnimal(const WrongAnimal &other);            // copy constructor
-        WrongAnimal &operator=(const WrongAnimal &rhs);   // copy assignment
-        ~WrongAnimal();                   // destructor
-
-        // methods 
+        // methods (intentionally NOT virtual)
         void  makeSound() const;
 
         // getter for tests

@@ -6,11 +6,12 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 22:35:46 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/17 22:41:49 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:34:55 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
+#include <iostream>
 
 // default constructor
 WrongAnimal::WrongAnimal() : type("WrongAnimal") {
@@ -35,15 +36,15 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &rhs) {
     return *this;
 }
 
-// destructor
+// destructor (intentionally non-virtual)
 WrongAnimal::~WrongAnimal() {
     std::cout << "[WrongAnimal] dtor" << std::endl;;
 }
 
-// methods 
+// methods / behavior (no virtual)
 void  WrongAnimal::makeSound() const {
     std::cout << "[WrongAnimal] * wrong generic sound *" << std::endl;
 }
 
-// getter for tests
+// getter for tests/accessor
 const std::string   &WrongAnimal::getType() const { return this->type; }
