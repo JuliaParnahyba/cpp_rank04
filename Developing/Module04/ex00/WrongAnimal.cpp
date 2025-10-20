@@ -6,7 +6,7 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 22:35:46 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/20 10:34:55 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:37:11 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &rhs) {
 
 // destructor (intentionally non-virtual)
 WrongAnimal::~WrongAnimal() {
-    std::cout << "[WrongAnimal] dtor" << std::endl;;
+    std::cout << "[WrongAnimal] dtor" << std::endl;
 }
 
 // methods / behavior (no virtual)
