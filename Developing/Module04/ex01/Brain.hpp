@@ -6,17 +6,16 @@
 /*   By: jparnahy <jparnahy@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:29:52 by jparnahy          #+#    #+#             */
-/*   Updated: 2025/10/18 23:18:32 by jparnahy         ###   ########.fr       */
+/*   Updated: 2025/10/20 11:12:38 by jparnahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* --------- INCLUDE GUARD --------- */
 // if not defined, define this.
-#ifndef BRAIN_HPP    // start include guard: prevent multiple inclusion
-#define BRAIN_HPP    // define guard macro once for this translation unit
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 /* --------- STANDARD LIBRARIES --------- */
-#include <iostream>
 #include <string>
 
 class   Brain {
@@ -25,10 +24,10 @@ class   Brain {
 
     public:
         // OCF - Orthodox Canonical Form
-        Brain();                              // default constructor
-        Brain(const Brain &other);            // copy constructor
-        Brain &operator=(const Brain &rhs);   // copy assignment
-        ~Brain();                     // destructor
+        Brain();                            // default constructor
+        Brain(const Brain &other);          // copy constructor
+        Brain &operator=(const Brain &rhs); // copy assignment
+        ~Brain();                           // destructor
 
         // utils for tests
         void                setIdea(int i, const std::string &idea);
